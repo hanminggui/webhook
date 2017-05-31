@@ -3,7 +3,7 @@
  */
 
 
-function editKeys() {
-    document.getElementById("code").style.display='none'
-    document.getElementById("form").style.display='block'
+function editKeys(name,name2) {
+    document.getElementById(name).style.display='none'
+    document.getElementById(name2).style.display='block'
 }
