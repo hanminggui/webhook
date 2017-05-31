@@ -7,6 +7,7 @@ import (
 	"workspace/hooks/models"
 	"strings"
 	"workspace/hooks/tools"
+        "fmt"
 )
 
 type PublishController struct {
@@ -27,7 +28,7 @@ func (c *PublishController) Post() {
 
 	for i := 0; i<len(push.Commits); i++ {
 		if strings.Contains(push.Commits[i].Message, tools.GetKey()){
-
+                        tools.Exec_shell("pwd")
 		}
 	}
 

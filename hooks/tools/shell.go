@@ -7,7 +7,7 @@ import (
 	"fmt"
 )
 
-func exec_shell(s string) {
+func Exec_shell(s string) {
 	cmd := exec.Command("/bin/bash", "-c", s)
 	var out bytes.Buffer
 
