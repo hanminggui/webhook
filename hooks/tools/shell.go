@@ -7,7 +7,7 @@ import (
 	"fmt"
 )
 
-func Exec_shell(s string) {
+func Exec_shell(s string) string {
 	cmd := exec.Command("/bin/bash", "-c", s)
 	var out bytes.Buffer
 
@@ -17,4 +17,5 @@ func Exec_shell(s string) {
 		log.Fatal(err)
 	}
 	fmt.Printf("%s", out.String())
+	return out.String()
 }
