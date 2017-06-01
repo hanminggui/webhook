@@ -32,7 +32,7 @@ func (c *PublishController) Post() {
 		if strings.Contains(push.Commits[i].Message, tools.GetKey()){
                         projectHome := filepath.Join(tools.GetGitHome(), push.Repository.Name)
                         refs := strings.Split(push.Ref, "/")
-                        ref := refs[len(refs)]
+                        ref := refs[len(refs)-1]
                         fmt.Println(ref)
                         if _,err := os.Stat(projectHome); os.IsNotExist(err){
                                 res := tools.Exec_shell("cd " + tools.GetGitHome() + " && git clone " + push.Repository.Git_ssh_url + " && cd " + projectHome  + " && git checkout " + ref)
