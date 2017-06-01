@@ -14,7 +14,8 @@ func Exec_shell(s string) string {
 	var out bytes.Buffer
 
 	cmd.Stdout = &out
-	err := cmd.Run()
+	err := cmd.Start()
+	//err := cmd.Run()
 	if err != nil {
 		log.Fatal(err)
 	}
