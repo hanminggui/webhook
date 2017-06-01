@@ -3,6 +3,7 @@ package controllers
 import (
 	"github.com/astaxie/beego"
 	"workspace/hooks/tools"
+	"workspace/hooks/models"
 )
 
 
@@ -33,7 +34,9 @@ func (c *ImageController) Get() {
 }
 
 func (c *ImageController) Post() {
-	tools.SetPublish(c.GetString("publish"))
-	tools.SetGitHome(c.GetString("gitHome"))
+	//publish := tools.GetPublish()
+        //ps := new(models.PublishSeting)
+        //ps.
+        //tools.SetPublish(c.get)
 	c.Get()
 }
