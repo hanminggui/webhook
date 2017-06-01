@@ -21,3 +21,11 @@ func Exec_shell(s string) string {
 	//fmt.Printf("%s", out.String())
 	return out.String()
 }
+func Exec_shell2(s string) string {
+	cmd := exec.Command("/bin/bash", "-c", s)
+	out, err := cmd.Output()
+	if err != nil {
+		log.Fatal(err)
+	}
+	return string(out)
+}
