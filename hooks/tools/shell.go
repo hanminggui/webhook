@@ -8,6 +8,7 @@ import (
 )
 
 func Exec_shell(s string) string {
+	fmt.Println("shell begin" + s)
 	cmd := exec.Command("/bin/bash", "-c", s)
 	var out bytes.Buffer
 

@@ -3,6 +3,7 @@ package controllers
 import (
 	"github.com/astaxie/beego"
 	"io/ioutil"
+	"fmt"
 	"encoding/json"
 	"workspace/hooks/models"
 	"strings"
@@ -27,7 +28,10 @@ func (c *PublishController) Post() {
 
 	for i := 0; i<len(push.Commits); i++ {
 		if strings.Contains(push.Commits[i].Message, tools.GetKey()){
-                        tools.Exec_shell("pwd")
+                        res := tools.Exec_shell("pwd")
+			fmt.Println(res)
+			res = tools.Exec_shell("cd tools && pwd")
+                        fmt.Println(res)
 		}
 	}
 
