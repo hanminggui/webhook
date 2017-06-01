@@ -38,7 +38,7 @@ func (c *PublishController) Post() {
                                 res := tools.Exec_shell("cd " + tools.GetGitHome() + " && git clone " + push.Repository.Git_ssh_url + " && cd " + projectHome  + " && git checkout " + ref)
                                 fmt.Println(res)
                         }else {
-                                res := tools.Exec_shell2("cd " + projectHome  + " && git pull origin " +ref+":"+ref+ " && git checkout " + push.Ref)
+                                res := tools.Exec_shell("cd " + projectHome  + " && git pull origin " +ref+":"+ref+ " && git checkout " + push.Ref)
                                 fmt.Println(res)
                         }
 		}
