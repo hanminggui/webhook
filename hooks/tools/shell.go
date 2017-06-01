@@ -4,11 +4,11 @@ import (
 	"os/exec"
 	"bytes"
 	"log"
-	"fmt"
+	//"fmt"
 )
 
 func Exec_shell(s string) string {
-	fmt.Println("shell begin" + s)
+	//fmt.Println("shell begin" + s)
 	cmd := exec.Command("/bin/bash", "-c", s)
 	var out bytes.Buffer
 
@@ -17,6 +17,6 @@ func Exec_shell(s string) string {
 	if err != nil {
 		log.Fatal(err)
 	}
-	fmt.Printf("%s", out.String())
+	//fmt.Printf("%s", out.String())
 	return out.String()
 }

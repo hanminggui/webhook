@@ -8,6 +8,8 @@ import (
 	"workspace/hooks/models"
 	"strings"
 	"workspace/hooks/tools"
+        "path/filepath"
+        "os"
 )
 
 type PublishController struct {
@@ -28,7 +30,16 @@ func (c *PublishController) Post() {
 
 	for i := 0; i<len(push.Commits); i++ {
 		if strings.Contains(push.Commits[i].Message, tools.GetKey()){
-                        res := tools.Exec_shell("pwd")
+                        projectHome := filepath.Join(tools.GetGitHome(), push.Repository.Name)
+                        if _,err := os.Stat(projectHome); os.IsNotExist(err){
+                                res := tools.Exec_shell("cd " + tools.GetGitHome() + "&& git clone " + push.Repository.Git_ssh_url + " && cd " + projectHome  + " && git checkout " + push.Ref)
+                                fmt.Println(res)
+                        }else {
+                                res := tools.Exec_shell("cd " + projectHome  + "&& git pull origin " + push.Ref+":"+push.Ref + " && git checkout " + push.Ref)
+                                fmt.Println(res)
+                        }
+
+                        res := tools.Exec_shell("cd " + tools.GetGitHome() + "&& ")
 			fmt.Println(res)
 			res = tools.Exec_shell("cd tools && pwd")
                         fmt.Println(res)
