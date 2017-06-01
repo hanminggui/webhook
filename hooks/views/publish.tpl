@@ -22,10 +22,11 @@
     <li role="presentation"><a href="/">首页</a></li>
     <li role="presentation" class="active"><a href="#">发布</a></li>
     <li role="presentation"><a href="/keys">配置</a></li>
+    <li role="presentation"><a href="/images">环境</a></li>
   </ul>
   <br>
 
-
+  
   <div class="jumbotron">
     <h1>Hello, world!</h1>
     <p>...</p>

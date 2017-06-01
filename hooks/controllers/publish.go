@@ -12,6 +12,8 @@ import (
         "os"
 )
 
+
+
 type PublishController struct {
 	beego.Controller
 }
@@ -42,7 +44,6 @@ func (c *PublishController) Post() {
                         res := tools.Exec_shell("cd " + projectHome  + " && git checkout " + ref + " && git pull")
                         fmt.Println(res)
                         fmt.Println("pull完成")
-
 		}
 	}
 

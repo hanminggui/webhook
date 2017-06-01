@@ -4,12 +4,15 @@ import (
 	"io/ioutil"
 	"os"
 	"path/filepath"
+        "encoding/json"
+        "workspace/hooks/models"
 )
 
 const (
 	confPath string = "conf"
 	keyFile string = "pushKey"
         gitHome string = "gitHome"
+        publish string = "publish"
 )
 
 var (
@@ -36,7 +39,7 @@ func GetGitHome() string {
         home, err := ioutil.ReadFile(filepath.Join(workPath, confPath, gitHome))
         if err != nil {
                 home = []byte("/user/local/gitHome")
-                SetKey(string(home))
+                SetGitHome(string(home))
         }
         return string(home)
 }
@@ -44,6 +47,24 @@ func GetGitHome() string {
 func SetGitHome(home string) {
         d1 := []byte(home)
         err := ioutil.WriteFile(filepath.Join(workPath, confPath, gitHome), d1, 0644)
+        Check(err)
+}
+
+func GetPublish() models.Pulish {
+        publishData, err := ioutil.ReadFile(filepath.Join(workPath, confPath, publish))
+        var publish  models.Pulish
+        if err != nil {
+                publishData = []byte("{}")
+                SetPublish(publish)
+        }
+        json.Unmarshal(publishData, publish)
+        return publish
+}
+
+func SetPublish(publishData models.Pulish) {
+        //d1 := []byte(string(publishData))
+        d1,_ := json.Marshal(publishData)
+        err := ioutil.WriteFile(filepath.Join(workPath, confPath, publish), d1, 0644)
         Check(err)
 }
 

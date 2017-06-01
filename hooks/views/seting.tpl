@@ -22,6 +22,7 @@
     <li role="presentation" ><a href="/">首页</a></li>
     <li role="presentation"><a href="/publish">发布</a></li>
     <li role="presentation " class="active"><a href="#">配置</a></li>
+    <li role="presentation"><a href="/images">环境</a></li>
   </ul>
   <br>
   
@@ -57,11 +58,10 @@
           <br>
           <input type="submit" class="btn btn-success" value="提交" >
         </div>
-        
       </div>
+    </div>
 </form>
 
-</div>
 
 <script src="//cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </body>
