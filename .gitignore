@@ -2,4 +2,4 @@
 *.exe
 *.exe~
 *.tmp
-hook/hook
+hooks/hook
