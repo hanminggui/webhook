@@ -31,13 +31,14 @@ func (c *PublishController) Post() {
 	for i := 0; i<len(push.Commits); i++ {
 		if strings.Contains(push.Commits[i].Message, tools.GetKey()){
                         projectHome := filepath.Join(tools.GetGitHome(), push.Repository.Name)
-                        ref := strings.TrimLeft(push.Ref, "/")
+                        refs := strings.Split(push.Ref, "/")
+                        ref := refs[len(refs)]
                         fmt.Println(ref)
                         if _,err := os.Stat(projectHome); os.IsNotExist(err){
-                                res := tools.Exec_shell("cd " + tools.GetGitHome() + " && git clone " + push.Repository.Git_ssh_url + " && cd " + projectHome  + " && git checkout " + push.Ref)
+                                res := tools.Exec_shell("cd " + tools.GetGitHome() + " && git clone " + push.Repository.Git_ssh_url + " && cd " + projectHome  + " && git checkout " + ref)
                                 fmt.Println(res)
                         }else {
-                                res := tools.Exec_shell2("cd " + projectHome  + " && git pull origin " + push.Ref+":"+push.Ref + " && git checkout " + push.Ref)
+                                res := tools.Exec_shell2("cd " + projectHome  + " && git pull origin " +ref+":"+ref+ " && git checkout " + push.Ref)
                                 fmt.Println(res)
                         }
 		}
