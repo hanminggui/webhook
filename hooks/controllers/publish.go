@@ -35,12 +35,14 @@ func (c *PublishController) Post() {
                         ref := refs[len(refs)-1]
                         fmt.Println(ref)
                         if _,err := os.Stat(projectHome); os.IsNotExist(err){
-                                res := tools.Exec_shell("cd " + tools.GetGitHome() + " && git clone " + push.Repository.Git_ssh_url + " && cd " + projectHome  + " && git checkout " + ref)
+                                res := tools.Exec_shell("cd " + tools.GetGitHome() + " && git clone " + push.Repository.Git_ssh_url)
                                 fmt.Println(res)
-                        }else {
-                                res := tools.Exec_shell("cd " + projectHome  + " && git pull origin " +ref+":"+ref+ " && git checkout " + ref)
-                                fmt.Println(res)
+                                fmt.Println("clone完成")
                         }
+                        res := tools.Exec_shell("cd " + projectHome  + " && git checkout " + ref + " && git pull")
+                        fmt.Println(res)
+                        fmt.Println("pull完成")
+
 		}
 	}
 
