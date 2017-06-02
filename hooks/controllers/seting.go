@@ -4,6 +4,8 @@ import (
 	"github.com/astaxie/beego"
 	"workspace/hooks/tools"
 	"workspace/hooks/models"
+        "encoding/json"
+        "fmt"
 )
 
 
@@ -29,14 +31,15 @@ type ImageController struct {
 }
 
 func (c *ImageController) Get() {
-	c.Data["publish"] = tools.GetPublish()
+        fmt.Println(tools.GetPublish())
+        jsonstr,_ := json.Marshal(tools.GetPublish())
+	c.Data["publish"] = string(jsonstr)
 	c.TplName = "images.tpl"
 }
 
 func (c *ImageController) Post() {
-	//publish := tools.GetPublish()
-        //ps := new(models.PublishSeting)
-        //ps.
-        //tools.SetPublish(c.get)
+        var publish models.Pulish
+        json.Unmarshal(c.Ctx.Input.RequestBody, &publish)
+        tools.SetPublish(publish)
 	c.Get()
 }

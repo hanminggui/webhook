@@ -1,0 +1,1 @@
+{"Pulish":{"PublishSetings":[{"Images":[{"Branch":"master","BuildTo":"127.0.0.1","ImageName":"本地环境"}],"BuildShell":"xxx","Name":"zs","Repository":{"Name":"zz","Url":"www.baidu.com","Description":"sss","Homepage":"ccc","Git_http_url":"aa","Git_ssh_url":"vvv","Visibility_level":22}}]}}

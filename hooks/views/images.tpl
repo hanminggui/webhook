@@ -25,9 +25,12 @@
     <li role="presentation" class="active"><a href="#">环境</a></li>
   </ul>
   <br>
+  
+  {{.publish}}
+  
 </div>
 
-
 <script src="//cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="https://unpkg.com/vue/dist/vue.js"></script>
 </body>
 </html>
