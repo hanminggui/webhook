@@ -5,7 +5,6 @@ import (
 	"workspace/hooks/tools"
 	"workspace/hooks/models"
         "encoding/json"
-        "fmt"
 )
 
 
@@ -31,9 +30,8 @@ type ImageController struct {
 }
 
 func (c *ImageController) Get() {
-        fmt.Println(tools.GetPublish())
-        jsonstr,_ := json.Marshal(tools.GetPublish())
-	c.Data["publish"] = string(jsonstr)
+	publish := tools.GetPublish()
+	c.Data["publish"] = &publish
 	c.TplName = "images.tpl"
 }
 

@@ -53,17 +53,17 @@ func SetGitHome(home string) {
 
 func GetPublish() models.Pulish {
         publishData, err := ioutil.ReadFile(filepath.Join(workPath, confPath, publish))
-        //fmt.Println(string(publishData))
+        fmt.Println(string(publishData))
         var publish  models.Pulish
         if err != nil {
                 publishData = []byte("{}")
                 SetPublish(publish)
         }
-        jsonerr := json.Unmarshal(publishData, publish)
+        jsonerr := json.Unmarshal(publishData, &publish)
         if jsonerr != nil {
                 fmt.Println(jsonerr)
         }
-        fmt.Println(publish.PublishSetings)
+	fmt.Println(publish.PublishSetings)
         return publish
 }
 
