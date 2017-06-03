@@ -6,7 +6,7 @@ type Pulish struct {
 }
 
 type PublishSeting struct {
-        Repository              Repository
+        Url                     string
         Images                  []Image
         BuildShell              string
         Name                    string

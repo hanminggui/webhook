@@ -5,6 +5,7 @@ import (
 	"workspace/hooks/tools"
 	"workspace/hooks/models"
         "encoding/json"
+	"io/ioutil"
 )
 
 
@@ -37,7 +38,8 @@ func (c *ImageController) Get() {
 
 func (c *ImageController) Post() {
         var publish models.Pulish
-        json.Unmarshal(c.Ctx.Input.RequestBody, &publish)
+	result,_ := ioutil.ReadAll(c.Ctx.Request.Body)
+        json.Unmarshal(result, &publish)
         tools.SetPublish(publish)
 	c.Get()
 }
