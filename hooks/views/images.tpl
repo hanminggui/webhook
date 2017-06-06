@@ -22,7 +22,7 @@
     </div>
     <ul class="nav nav-pills">
       <li role="presentation"><a href="/">首页</a></li>
-      <li role="presentation"><a href="#">发布</a></li>
+      <li role="presentation"><a href="/publish">发布</a></li>
       <li role="presentation"><a href="/keys">配置</a></li>
       <li role="presentation" class="active" ><a href="/images">环境</a></li>
     </ul>

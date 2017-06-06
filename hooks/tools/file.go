@@ -7,6 +7,7 @@ import (
         "encoding/json"
         "workspace/hooks/models"
         "fmt"
+	"strconv"
 )
 
 const (
@@ -78,4 +79,49 @@ func Check(e error) {
 	if e != nil {
 		panic(e)
 	}
+}
+
+
+
+//test
+
+type Log struct {
+        Api             string
+        Name            string
+        Runtime         int
+}
+
+func (log *Log) writetoFile(file *os.File)  {
+        strLog,err := json.Marshal(log)
+        Check(err)
+        file.WriteString(string(strLog) + "\n")
+}
+
+func TestWriteLog()  {
+        f , err := os.OpenFile(filepath.Join(workPath, "log", "test.log"), os.O_WRONLY|os.O_APPEND, 0666)
+        Check(err)
+        defer f.Close()
+	ci := make(chan int,5000)
+	defer close(ci)
+
+        for i:=0; i<5000; i++ {
+                go testBf(f, ci, i)
+        }
+	for i:=0; i<5000; i++ {
+		tId := <- ci
+		fmt.Println(strconv.Itoa(tId) + "号协程执行完毕")
+	}
+
+	fmt.Println("***************************************************************************************************")
+	fmt.Println("*************                              writer over                                *************")
+	fmt.Println("***************************************************************************************************")
+}
+
+func testBf(f *os.File, c chan int, i int)  {
+	log := new(Log)
+	log.Api = "I'm api"
+	log.Name = "I'm name"
+	log.Runtime = i
+	log.writetoFile(f)
+	c <- i
 }

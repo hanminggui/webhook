@@ -16,6 +16,7 @@ type KeyController struct {
 func (c *KeyController) Get() {
 	c.Data["pushKey"] = tools.GetKey()
 	c.Data["gitHome"] = tools.GetGitHome()
+	tools.TestWriteLog()
 	c.TplName = "seting.tpl"
 }
 
