@@ -5,13 +5,8 @@
 <body>
 
   <div class="container">
-    {{template "components/title.tpl" .}}
-
-  
     <div class="jumbotron">
-      <h1>Hello, publish!</h1>
-      <p>...</p>
-      <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a></p>
+      <h1>{{.result}}</h1>
     </div>
   </div>
 

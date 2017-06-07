@@ -19,6 +19,7 @@ type PublishController struct {
 }
 
 func (c *PublishController) Get() {
+	c.Data["pageName"] = "发布"
 	c.TplName = "publish.tpl"
 }
 

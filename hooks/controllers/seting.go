@@ -14,9 +14,10 @@ type KeyController struct {
 }
 
 func (c *KeyController) Get() {
+	c.Data["pageName"] = "配置"
 	c.Data["pushKey"] = tools.GetKey()
 	c.Data["gitHome"] = tools.GetGitHome()
-	tools.Xxx()
+	//tools.Xxx()
 	c.TplName = "seting.tpl"
 }
 
@@ -33,6 +34,7 @@ type ImageController struct {
 
 func (c *ImageController) Get() {
 	publish := tools.GetPublish()
+	c.Data["pageName"] = "环境"
 	c.Data["publish"] = &publish
 	c.TplName = "images.tpl"
 }

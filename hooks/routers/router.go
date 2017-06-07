@@ -10,4 +10,5 @@ func init() {
 	beego.Router("/keys", &controllers.KeyController{})
 	beego.Router("/images", &controllers.ImageController{})
 	beego.Router("/publish", &controllers.PublishController{})
+	beego.Router("/tools", &controllers.ToolsController{})
 }
