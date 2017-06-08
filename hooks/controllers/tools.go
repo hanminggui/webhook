@@ -30,8 +30,8 @@ func (c *ToolsController) Post() {
 		tools.OldLog = c.GetString("oldtable")
                 tools.LENGTH,_ = c.GetInt("length")
 	}
-	//res := tools.WriteApiLogToFile()
-	res := tools.Test()
+	res := tools.WriteApiLogToFile()
+	//res := tools.Test()
 	c.Data["result"] = res
 	c.TplName = "log.tpl"
 }

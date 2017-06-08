@@ -143,29 +143,29 @@ func writetoFile(file *os.File, apilog Log, wc chan int)  {
 }
 
 
-func Test() string {
-        db,err := mysql.Open(DN, DSN)
-        Check(err)
-        defer db.Close()
-
-        c := make(chan int,20)
-        index := 0
-
-        LENGTH = 10000
-
-        for nlb,nle := 57600000,57700000; nlb < nle; nlb += LENGTH{
-                go writeArray(db, NewLog, nlb, c, index)
-                index++
-        }
-
-        for i:=0; i<index; i++{
-                fmt.Println(str.Itoa(<- c) + "号协程执行完毕")
-        }
-
-        fmt.Println("***************************************************************************************************")
-        fmt.Println("*************                              writer over                                *************")
-        fmt.Println("***************************************************************************************************")
-
-        return "写入完成，共写入" + str.Itoa(index) + "个文件。每个文件" + str.Itoa(LENGTH) + "条数据。 \n 文件目录:" + filepath.Join(workPath, "log")
-
-}
+//func Test() string {
+//        db,err := mysql.Open(DN, DSN)
+//        Check(err)
+//        defer db.Close()
+//
+//        c := make(chan int,20)
+//        index := 0
+//
+//        LENGTH = 10000
+//
+//        for nlb,nle := 57600000,57700000; nlb < nle; nlb += LENGTH{
+//                go writeArray(db, NewLog, nlb, c, index)
+//                index++
+//        }
+//
+//        for i:=0; i<index; i++{
+//                fmt.Println(str.Itoa(<- c) + "号协程执行完毕")
+//        }
+//
+//        fmt.Println("***************************************************************************************************")
+//        fmt.Println("*************                              writer over                                *************")
+//        fmt.Println("***************************************************************************************************")
+//
+//        return "写入完成，共写入" + str.Itoa(index) + "个文件。每个文件" + str.Itoa(LENGTH) + "条数据。 \n 文件目录:" + filepath.Join(workPath, "log")
+//
+//}
