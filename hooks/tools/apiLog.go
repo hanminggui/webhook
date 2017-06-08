@@ -64,7 +64,7 @@ func writeArray(db *mysql.DB, tableName string, beginId int,  c chan int, number
         var response_params mysql.NullString
         var ip_region mysql.NullString
 
-        wc := make(chan int,1024)
+        //wc := make(chan int,1024)
         for rows.Next() {
 
                 var apilog Log
@@ -76,14 +76,15 @@ func writeArray(db *mysql.DB, tableName string, beginId int,  c chan int, number
                 apilog.Create_time = create_time.String
                 apilog.Clientip = strings.Split(ip.String, ",")[0]
                 apilog.Duration = 0
-                go writetoFile(f, apilog, wc)
+                //go writetoFile(f, apilog, wc)
+                writetoFile(f, apilog)
                 tn ++
         }
         fmt.Println(str.Itoa(number) + "协程取完了所有数据并启动了 "+str.Itoa(tn)+"个子协程：写入文件中")
 
-        for i:=0; i<tn; i++{
-               <- wc
-        }
+        //for i:=0; i<tn; i++{
+        //       <- wc
+        //}
         fmt.Println(str.Itoa(number) + "协程所有子协程已完成写入操作")
         rows.Close()
         f.Close()
@@ -131,7 +132,7 @@ type Log struct {
         Duration       int     `json:"duration"`
 }
 
-func writetoFile(file *os.File, apilog Log, wc chan int)  {
+func writetoFile(file *os.File, apilog Log)  {
 
         //存文件
         byteLog,err := json.Marshal(apilog)
@@ -139,8 +140,17 @@ func writetoFile(file *os.File, apilog Log, wc chan int)  {
         //fmt.Println(string(strLog))
 
         file.WriteString(string(byteLog)  + "\n")
-        wc <- 1
 }
+//func writetoFile(file *os.File, apilog Log, wc chan int)  {
+//
+//        //存文件
+//        byteLog,err := json.Marshal(apilog)
+//        Check(err)
+//        //fmt.Println(string(strLog))
+//
+//        file.WriteString(string(byteLog)  + "\n")
+//        wc <- 1
+//}
 
 
 //func Test() string {
