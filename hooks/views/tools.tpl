@@ -20,6 +20,9 @@
       sql旧表明
       <input type="text" class="form-control" placeholder="sql旧表明" name="oldtable" value={{.oldtable}}>
       <br>
+      一个文件里存放log数量
+      <input type="text" class="form-control" placeholder="一个文件里存放log数量" name="length" value={{.length}}>
+      <br>
       <input type="submit" class="btn btn-success"  value="开始" onclick="editKeys('push', 'load')">
     </form>
 

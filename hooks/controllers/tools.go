@@ -17,7 +17,9 @@ func (c *ToolsController) Get() {
 	c.Data["conn"] = tools.DSN
 	c.Data["newtable"] = tools.NewLog
 	c.Data["oldtable"] = tools.OldLog
-	c.TplName = "tools.tpl"
+        c.Data["length"] = tools.LENGTH
+
+        c.TplName = "tools.tpl"
 }
 
 func (c *ToolsController) Post() {
@@ -26,8 +28,10 @@ func (c *ToolsController) Post() {
 		tools.DSN = c.GetString("conn")
 		tools.NewLog = c.GetString("newtable")
 		tools.OldLog = c.GetString("oldtable")
+                tools.LENGTH,_ = c.GetInt("length")
 	}
-	res := tools.WriteApiLogToFile()
+	//res := tools.WriteApiLogToFile()
+	res := tools.Test()
 	c.Data["result"] = res
 	c.TplName = "log.tpl"
 }

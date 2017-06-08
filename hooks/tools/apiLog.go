@@ -24,11 +24,13 @@ var (
 func get2Id(db *mysql.DB, table string) (int,int) {
         var begin,end int
         brows,err := db.Query("SELECT id FROM " + table + " ORDER BY id ASC LIMIT 1")
+        defer brows.Close()
         Check(err)
         for brows.Next(){
                 brows.Scan(&begin)
         }
         erows,err := db.Query("SELECT id FROM " + table + " ORDER BY id DESC LIMIT 1")
+        defer erows.Close()
         Check(err)
         for erows.Next(){
                 erows.Scan(&end)
@@ -38,43 +40,55 @@ func get2Id(db *mysql.DB, table string) (int,int) {
 
 func writeArray(db *mysql.DB, tableName string, beginId int,  c chan int, number int)  {
         // 文件命名规则  开始idto结束id
-        fileName := filepath.Join(workPath, "log", str.Itoa(beginId) + "to" + str.Itoa(beginId + LENGTH))
-        sql := "SELECT * FROM " + tableName + "WHERE id >="+str.Itoa(beginId)+" and id < " + str.Itoa(beginId + LENGTH)
+        fileName := filepath.Join(workPath, "log", tableName + str.Itoa(number) + ".txt")
+
+        sqlQ := "SELECT * FROM " + tableName + " WHERE id >= "+str.Itoa(beginId)+" AND id < " + str.Itoa(beginId + LENGTH)
 
         err := ioutil.WriteFile(fileName, []byte("\n"), 0644)
         f , err := os.OpenFile(fileName, os.O_WRONLY|os.O_APPEND, 0666)
         Check(err)
-        defer f.Close()
-
-        rows,err := db.Query(sql)
+        rows,err := db.Query(sqlQ)
         Check(err)
 
-        var id  int
+        fmt.Println(str.Itoa(number) + "协程启动：取出SQL结果、打开文件。读取数据&启动写入协程中")
+        tn := 0
+
+        //序列化
+        var id       mysql.NullString
         var uuid mysql.NullString
         var target_name mysql.NullString
         var target_class mysql.NullString
-        var request_params mysql.NullString
+        var request_params []byte
         var create_time mysql.NullString
         var ip mysql.NullString
         var response_params mysql.NullString
         var ip_region mysql.NullString
 
-        var apilog Log
-
+        wc := make(chan int,1024)
         for rows.Next() {
-                //序列化
+
+                var apilog Log
                 err := rows.Scan(&id, &uuid, &target_name, &target_class, &request_params, &response_params, &ip, &ip_region, &create_time)
                 Check(err)
                 apilog.Target_name = target_name.String
                 apilog.Target_class = target_class.String
-                apilog.Request_params = request_params.String
+                json.Unmarshal(request_params, &apilog.Request_params)
                 apilog.Create_time = create_time.String
-                apilog.Ip = strings.Split(ip.String, ",")[0]
+                apilog.Clientip = strings.Split(ip.String, ",")[0]
                 apilog.Duration = 0
-                //存文件
-                apilog.writetoFile(f)
+                go writetoFile(f, apilog, wc)
+                tn ++
         }
+        fmt.Println(str.Itoa(number) + "协程取完了所有数据并启动了 "+str.Itoa(tn)+"个子协程：写入文件中")
+
+        for i:=0; i<tn; i++{
+               <- wc
+        }
+        fmt.Println(str.Itoa(number) + "协程所有子协程已完成写入操作")
+        rows.Close()
+        f.Close()
         c <- number
+
 }
 
 
@@ -109,47 +123,49 @@ func WriteApiLogToFile() string {
 }
 
 type Log struct {
-        Target_name     string
-        Target_class    string
-        Request_params  string
-        Create_time     string
-        Ip              string
-        Duration        int
+        Target_name    string  `json:"target_name"`
+        Target_class   string  `json:"target_class"`
+        Request_params interface{}  `json:"request_params"`
+        Create_time    string  `json:"create_time"`
+        Clientip       string  `json:"clientip"`
+        Duration       int     `json:"duration"`
 }
 
-func (log *Log) writetoFile(file *os.File)  {
-        strLog,err := json.Marshal(log)
+func writetoFile(file *os.File, apilog Log, wc chan int)  {
+
+        //存文件
+        byteLog,err := json.Marshal(apilog)
         Check(err)
-        file.WriteString(string(strLog) + "\n")
+        //fmt.Println(string(strLog))
+
+        file.WriteString(string(byteLog)  + "\n")
+        wc <- 1
 }
 
-//
-//func TestWriteLog(fileName string)  {
-//        f , err := os.OpenFile(filepath.Join(workPath, "log", fileName), os.O_WRONLY|os.O_APPEND, 0666)
-//        Check(err)
-//        defer f.Close()
-//        ci := make(chan int,5000)
-//        defer close(ci)
-//
-//        for i:=0; i<5000; i++ {
-//                go testBf(f, ci, i)
-//        }
-//        for i:=0; i<5000; i++ {
-//                <- ci
-//                //tId := <- ci
-//                //fmt.Println(strconv.Itoa(tId) + "号协程执行完毕")
-//        }
-//
-//        fmt.Println("***************************************************************************************************")
-//        fmt.Println("*************                              writer over                                *************")
-//        fmt.Println("***************************************************************************************************")
-//}
-//
-//func testBf(f *os.File, c chan int, i int)  {
-//        log := new(Log)
-//        //log.Api = "I'm api"
-//        //log.Name = "I'm name"
-//        //log.Runtime = i
-//        log.writetoFile(f)
-//        c <- i
-//}
+
+func Test() string {
+        db,err := mysql.Open(DN, DSN)
+        Check(err)
+        defer db.Close()
+
+        c := make(chan int,20)
+        index := 0
+
+        LENGTH = 10000
+
+        for nlb,nle := 57600000,57700000; nlb < nle; nlb += LENGTH{
+                go writeArray(db, NewLog, nlb, c, index)
+                index++
+        }
+
+        for i:=0; i<index; i++{
+                fmt.Println(str.Itoa(<- c) + "号协程执行完毕")
+        }
+
+        fmt.Println("***************************************************************************************************")
+        fmt.Println("*************                              writer over                                *************")
+        fmt.Println("***************************************************************************************************")
+
+        return "写入完成，共写入" + str.Itoa(index) + "个文件。每个文件" + str.Itoa(LENGTH) + "条数据。 \n 文件目录:" + filepath.Join(workPath, "log")
+
+}
