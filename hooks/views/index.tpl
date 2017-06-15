@@ -10,7 +10,7 @@
 
     <div class="jumbotron">
       <h1>Hello, index!</h1>
-      <p>....</p>
+      <p>{{.q}}</p>
       <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a></p>
     </div>
   </div>
