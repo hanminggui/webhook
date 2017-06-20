@@ -13,7 +13,7 @@
     
     <!--<meta name="viewport" content="width=device-width">-->
     
-    <title>Sign in to 花椒 · 花椒</title>
+    <title>Join 花椒 · 花椒</title>
 
 </head>
 
@@ -45,8 +45,8 @@
         
         <div class="auth-form px-3" id="login">
             
-            </option></form><form accept-charset="UTF-8" action="/login" method="post"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="Zz+Czn4K1Gv4IFXJdUfCYepGGkzAHbMJln/s8wX+6TyoGGAAedf6K4ZC2CwTGnezXLm8qzMm9clSRUMJ11DxTw==" /></div>      <div class="auth-form-header p-0">
-            <h1>登录 花椒</h1>
+            </option></form><form accept-charset="UTF-8" action="/join" method="post"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="Zz+Czn4K1Gv4IFXJdUfCYepGGkzAHbMJln/s8wX+6TyoGGAAedf6K4ZC2CwTGnezXLm8qzMm9clSRUMJ11DxTw==" /></div>      <div class="auth-form-header p-0">
+            <h1>注册 花椒</h1>
         </div>
             
             
@@ -57,22 +57,32 @@
             <div class="auth-form-body mt-3">
                 
                 <label for="login_field">
-                    用户名 或 手机号
+                    用户名
                 </label>
-                <input autocapitalize="off" autocorrect="off" autofocus="autofocus" class="form-control input-block" id="login_field" name="login" tabindex="1" type="text" />
-                
+                <input autocapitalize="off" autocorrect="off" autofocus="autofocus" class="form-control input-block" id="login_field" name="username" tabindex="1" type="text" />
+
+                <label for="login_field">
+                    手机号
+                </label>
+                <input autocapitalize="off" autocorrect="off" autofocus="autofocus" class="form-control input-block" id="login_phone" name="phone" tabindex="1" type="text" />
+
+                <label for="login_field">
+                    昵称
+                </label>
+                <input autocapitalize="off" autocorrect="off" autofocus="autofocus" class="form-control input-block" id="login_name" name="nikename" tabindex="1" type="text" />
+
                 <label for="password">
-                    密码 <a href="/password_reset" class="label-link">密码忘了?</a>
+                    密码
                 </label>
                 <input class="form-control form-control input-block" id="password" name="password" tabindex="2" type="password" />
                 
-                <input class="btn btn-primary btn-block" data-disable-with="Signing in…" name="commit" tabindex="3" type="submit" value="登 录" />
+                <input class="btn btn-primary btn-block" data-disable-with="Signing in…" name="commit" tabindex="3" type="submit" value="注 册" />
             </div>
         </form>
             
             <p class="create-account-callout mt-3">
-                没有花椒账号?
-                <a href="/join?source=login" data-ga-click="Sign in, switch to sign up">注册一个</a>.
+                有花椒账号?
+                <a href="/login" data-ga-click="Sign in, switch to sign up">去登录</a>.
             </p>
         </div>
     

@@ -9,7 +9,9 @@ type LoginController struct {
 }
 
 func (c *LoginController) Get() {
-	//c.Data["Website"] = "beego.me"
-	//c.Data["Email"] = "astaxie@gmail.com"
+	c.TplName = "login.tpl"
+}
+
+func (c *LoginController) Post() {
 	c.TplName = "login.tpl"
 }
