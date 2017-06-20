@@ -43,6 +43,41 @@
 
           <div class="content hide" id="content-hg">
 
+
+              <div class="row">
+                  <div class="col-sm-6 col-md-4">
+                      <div class="thumbnail">
+                          <img src="../static/img/timg.jpg" alt="...">
+                          <div class="caption">
+                              <h3>开发环境</h3>
+                              <p>想嘻嘻嘻行行行寻寻</p>
+                              <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="col-sm-6 col-md-4">
+                      <div class="thumbnail">
+                          <img src="../static/img/timg.jpg" alt="...">
+                          <div class="caption">
+                              <h3>测试环境</h3>
+                              <p>想嘻嘻嘻行行行寻寻</p>
+                              <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="col-sm-6 col-md-4">
+                      <div class="thumbnail">
+                          <img src="../static/img/timg.jpg" alt="...">
+                          <div class="caption">
+                              <h3>生产环境</h3>
+                              <p>想嘻嘻嘻行行行寻寻</p>
+                              <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+
+
               <div class="panel panel-primary">
                   <!-- Default panel contents -->
                   <div class="panel-heading">环境变量</div>
@@ -62,7 +97,7 @@
                           <td>token1</td>
                           <td>token2</td>
                           <td>token3</td>
-                          <td>修改</td>
+                          <td>编辑</td>
                       </tr>
                   </table>
               </div>
