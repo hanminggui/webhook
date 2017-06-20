@@ -16,7 +16,7 @@
           <br>
 
           <div class="content" id="content-jbxx">
-              <div class="panel panel-default">
+              <div class="panel panel-primary">
                   <!-- Default panel contents -->
                   <div class="panel-heading">版本控制</div>
                   <div class="panel-body">
@@ -42,10 +42,30 @@
           </div>
 
           <div class="content hide" id="content-hg">
-              环境变量 ip token
-              生产环境 aaa.aaa.com qweqwe
-              测试环境 test.aaa.com asdas
-              开发环境 dev.aaa.com zxczxc
+
+              <div class="panel panel-primary">
+                  <!-- Default panel contents -->
+                  <div class="panel-heading">环境变量</div>
+
+                  <!-- Table -->
+                  <table class="table table-hover">
+                      <tr>
+                          <th>#</th>
+                          <th>变量名</th>
+                          <th>开发环境</th>
+                          <th>测试环境</th>
+                          <th>生产环境</th>
+                      </tr>
+                      <tr>
+                          <td>删除</td>
+                          <td>&token</td>
+                          <td>token1</td>
+                          <td>token2</td>
+                          <td>token3</td>
+                          <td>修改</td>
+                      </tr>
+                  </table>
+              </div>
 
           </div>
 
