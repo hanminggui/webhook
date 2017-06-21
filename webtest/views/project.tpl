@@ -29,7 +29,7 @@
                   </div>
 
                   <!-- List group -->
-                  <ul class="list-group">
+                  <ul class="list-group table-hover">
                       <li class="list-group-item">master  <span class="label label-danger">生产环境</span> </li>
                       <li class="list-group-item">v0.16 <span class="label label-warning">测试环境</span> <span class="label label-info">开发环境</span></li>
                       <li class="list-group-item">v0.16.1</li>
