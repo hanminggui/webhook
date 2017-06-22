@@ -8,6 +8,7 @@
         <title>title</title>
 
         <link rel="stylesheet" href="../../static/css/all.css">
+        <link rel="stylesheet" href="../../static/css/toastr.min.css">
         <!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
         <link rel="stylesheet" href="../../static/bootstrap-3.3.7-dist/css/bootstrap.min.css">
 
@@ -15,6 +16,7 @@
         <link rel="stylesheet" href="../../static/bootstrap-3.3.7-dist/css/bootstrap-theme.min.css">
 
         <script src="../static/js/jquery-3.2.1.min.js"></script>
+        <script src="../static/js/toastr.min.js"></script>
         <script src="../static/js/tools.js"></script>
 
         <!-- 最新的jquery Bootstrap 核心 JavaScript 文件 -->

@@ -25,3 +25,7 @@ function checkLable(e) {
         }
     }
 }
+
+function editImage(e) {
+
+}
