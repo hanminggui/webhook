@@ -111,27 +111,36 @@
                   <div class="panel-heading">
                       环境变量
                       <button type="button" class="btn btn-warning btn-xs btn-right" data-toggle="modal" data-target="#bl">
-                          新增环境
+                          新增变量
                       </button>
                   </div>
 
                   <!-- Table -->
-                  <table class="table table-hover">
-                      <tr>
-                          <th>变量名</th>
-                          <th>开发环境</th>
-                          <th>测试环境</th>
-                          <th>生产环境</th>
+                  <table class="table table-hover" id="bl-tab">
+                      <tr id="bl-title">
+                          <th id="bl-title-name">变量名</th>
+                          <th id="bl-title-1">开发环境1</th>
+                          <th id="bl-title-2">测试环境2</th>
+                          <th id="bl-title-3">生产环境3</th>
                           <th>操</th>
                           <th>做</th>
                       </tr>
-                      <tr>
+                      <tr id="bl-1">
                           <td>&token</td>
                           <td>token1</td>
                           <td>token2</td>
                           <td>token3</td>
-                          <td><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#bl">编辑</button></td>
+                          <td><button type="button" class="btn btn-primary edit-bl" data-toggle="modal" data-target="#bl">编辑</button></td>
 
+                          <td><button type="button" class="btn btn-danger">删除</button></td>
+                      </tr>
+                      <tr id="bl-2">
+                          <td>&token</td>
+                          <td>token1</td>
+                          <td>token2</td>
+                          <td>token3</td>
+                          <td><button type="button" class="btn btn-primary edit-bl" data-toggle="modal" data-target="#bl">编辑</button></td>
+        
                           <td><button type="button" class="btn btn-danger">删除</button></td>
                       </tr>
                   </table>
@@ -167,7 +176,36 @@
             $("#imageDiscrip").val($(this).parent("p").siblings(".imageDiscrip").text());
         })
     })
-    <!--监听修改环境保存按钮点击事件-->
+    <!--监听新增、修改环境保存按钮点击事件-->
+    $(function () {
+        $("#saveImage").on("click", function () {
+            var image = $("#image-" + $("#imageid").attr("number"));
+            image.find(".imageName").html($("#imageName").val());
+            image.find(".imageDiscrip").html($("#imageDiscrip").val());
+            $("#image").modal('hide');
+            toastr.success("保存成功");
+        })
+    })
+
+
+    <!--监听新增和编辑环境按钮点击事件-->
+    $(function () {
+        $(".edit-bl").on("click", function () {
+//            var titles = $("#bl-title").children()
+            $("#title-bl-name").html($("#bl-title-name").text());
+            $("#title-image-1").html($("#bl-title-1").text());
+            $("#title-image-2").html($("#bl-title-2").text());
+            $("#title-image-3").html($("#bl-title-3").text());
+            
+            var bls = $(this).parent().parent().children();
+            $("#value-image-name").val(bls[0].val())
+            $("#value-image-1").val(bls[1].val())
+            $("#value-image-2").val(bls[2].val())
+            $("#value-image-3").val(bls[3].val())
+            
+        })
+    })
+    <!--监听新增、修改环境保存按钮点击事件-->
     $(function () {
         $("#saveImage").on("click", function () {
             var image = $("#image-" + $("#imageid").attr("number"));
@@ -216,23 +254,23 @@
                   </div>
                   <div class="modal-body">
                       <div class="input-group input-group-lg">
-                          <span class="input-group-addon">变量名称</span>
-                          <input type="text" class="form-control" placeholder="变量名称" aria-describedby="sizing-addon1">
+                          <span id="title-bl-name" class="input-group-addon">变量名称</span>
+                          <input type="text" id="value-image-name" class="form-control" placeholder="变量名称" aria-describedby="sizing-addon1">
                       </div>
                       <br>
                       <div class="input-group input-group-lg">
-                          <span class="input-group-addon">开发环境</span>
-                          <input type="text" class="form-control" placeholder="开发环境" aria-describedby="sizing-addon1">
+                          <span class="input-group-addon" id="title-image-1">开发环境</span>
+                          <input id="value-image-1" type="text" class="form-control" placeholder="开发环境" aria-describedby="sizing-addon1">
                       </div>
                       <br>
                       <div class="input-group input-group-lg">
-                          <span class="input-group-addon">测试环境</span>
-                          <input type="text" class="form-control" placeholder="测试环境" aria-describedby="sizing-addon1">
+                          <span class="input-group-addon" id="title-image-2">测试环境</span>
+                          <input id="value-image-2" type="text" class="form-control" placeholder="测试环境" aria-describedby="sizing-addon1">
                       </div>
                       <br>
                       <div class="input-group input-group-lg">
-                          <span class="input-group-addon">生产环境</span>
-                          <input type="text" class="form-control" placeholder="生产环境" aria-describedby="sizing-addon1">
+                          <span class="input-group-addon" id="title-image-3">生产环境</span>
+                          <input id="value-image-3" type="text" class="form-control" placeholder="生产环境" aria-describedby="sizing-addon1">
                       </div>
                   </div>
                   <div class="modal-footer">
