@@ -51,12 +51,14 @@
               <div class="panel panel-primary">
                   <div class="panel-heading">
                       环境
-                      <button type="button" class="btn btn-warning btn-xs btn-right edit-image" data-toggle="modal" data-target="#image">
-                          新增环境
-                      </button>
+                      <div class="btn-right">
+                          <button type="button" class="btn btn-warning btn-xs edit-image new" data-toggle="modal" data-target="#image">新增环境</button>
+                          <button type="button" class="btn btn-warning btn-xs edit-bl new" data-toggle="modal" data-target="#bl">新增变量</button>
+                      </div>
+
                   </div>
                   <div class="panel-body">
-                      <div class="row">
+                      <div class="row" id="imageList">
 
                           {{range $index, $image := .images}}
                           <div class="col-sm-6 col-md-4" id="image-{{$image.Id}}">
@@ -72,12 +74,38 @@
                                       <pre class="imageDiscrip">{{$image.Descrip}}</pre>
                                       <p>
                                           <button type="button" class="btn btn-success">运行</button>
-                                          <button type="button" class="btn btn-primary edit-image" data-toggle="modal" data-target="#image">
-                                              编辑
-                                          </button>
+                                          <button type="button" class="btn btn-primary edit-image edit" data-toggle="modal" data-target="#image">编辑</button>
                                           <button type="button" class="btn btn-info" role="button">详情</button>
-                                          <button type="button" class="btn btn-danger" role="button">删除</button>
+                                          <button type="button" class="btn btn-warning edit-image copy" data-toggle="modal" data-target="#image">复制</button>
+                                          <button type="button" class="btn btn-danger remove-image" role="button">删除</button>
                                       </p>
+                                  </div>
+
+                                  <button type="button" class="btn btn-default btn-lg btn-block show-bl">显示变量</button>
+
+                                  <!--变量-->
+                                  <div class="hide" id="blList-{{$image.Id}}">
+                                      <br>
+                                      {{range $index, $variable := $.variables}}
+                                      {{if eq $variable.ImageId $image.Id}}
+                                      <div class="panel panel-success bls" id="bl-{{$variable.Id}}">
+                                          <div class="panel-heading">
+                                              <h3 class="panel-title">
+                                                  <span>{{$variable.Name}}</span>
+
+                                                  <div class="btn-right">
+                                                      <button type="button" class="btn btn-primary btn-xs edit-bl edit" data-toggle="modal" data-target="#bl">编辑</button>
+                                                      <button type="button" class="btn btn-warning btn-xs edit-bl copy" data-toggle="modal" data-target="#bl">复制</button>
+                                                      <button type="button" class="btn btn-danger btn-xs remove-bl">删除</button>
+                                                  </div>
+                                              </h3>
+                                          </div>
+                                          <div class="panel-body">
+                                              <span>{{$variable.Value}}</span>
+                                          </div>
+                                      </div>
+                                      {{end}}
+                                      {{end}}
                                   </div>
                               </div>
                           </div>
@@ -85,55 +113,6 @@
                       </div>
                   </div>
               </div>
-
-
-
-              <div class="panel panel-primary">
-                  <!-- Default panel contents -->
-                  <div class="panel-heading">
-                      环境变量
-                      <button type="button" class="btn btn-warning btn-xs btn-right" data-toggle="modal" data-target="#bl">
-                          新增变量
-                      </button>
-                  </div>
-
-                  <!-- Table -->
-                  <table class="table table-hover" id="bl-tab">
-                      <tr id="bl-title">
-                          <th id="bl-title-name">变量名</th>
-                          {{range .images}}
-                          <th id="bl-title-{{.Id}}">{{.Name}}</th>
-                          {{end}}
-                          <th>操</th>
-                          <th>做</th>
-                      </tr>
-                      {{range .variables}}
-                      <tr>
-
-                      </tr>
-
-                      {{end}}
-                      <tr id="bl-1">
-                          <td>&token</td>
-                          <td>token1</td>
-                          <td>token2</td>
-                          <td>token3</td>
-                          <td><button type="button" class="btn btn-primary edit-bl" data-toggle="modal" data-target="#bl">编辑</button></td>
-
-                          <td><button type="button" class="btn btn-danger">删除</button></td>
-                      </tr>
-                      <tr id="bl-2">
-                          <td>&token</td>
-                          <td>token1</td>
-                          <td>token2</td>
-                          <td>token3</td>
-                          <td><button type="button" class="btn btn-primary edit-bl" data-toggle="modal" data-target="#bl">编辑</button></td>
-        
-                          <td><button type="button" class="btn btn-danger">删除</button></td>
-                      </tr>
-                  </table>
-              </div>
-
           </div>
 
           <div class="content hide" id="content-yl">
@@ -145,20 +124,60 @@
               用例
           </div>
 
-
       </div>
 
+      <!--环境模板-->
+      <div class="col-sm-6 col-md-4 hide" id="imageTem">
+          <div class="thumbnail">
+              <img src="../static/img/timg.jpg" alt="...">
+              <div class="caption">
+                  <span class="label label-info btn-right image-branch"></span>
+                  <h3 class="imageName"></h3>
+                  <pre class="imageDiscrip"></pre>
+                  <p>
+                      <button type="button" class="btn btn-success">运行</button>
+                      <button type="button" class="btn btn-primary edit-image edit" data-toggle="modal" data-target="#image">编辑</button>
+                      <button type="button" class="btn btn-info" role="button">详情</button>
+                      <button type="button" class="btn btn-warning edit-image copy" data-toggle="modal" data-target="#image">复制</button>
+                      <button type="button" class="btn btn-danger remove-image" role="button">删除</button>
+                  </p>
+              </div>
+              <button type="button" class="btn btn-default btn-lg btn-block show-bl">显示变量</button>
+
+              <!--变量-->
+              <div class="hide" id="blList-new">
+                  <br>
+              </div>
+          </div>
+      </div>
+
+      <!--变量模板-->
+      <div class="panel panel-success bls hide" id="blTem">
+          <div class="panel-heading">
+              <h3 class="panel-title">
+                  <span></span>
+                  <div class="btn-right">
+                      <button type="button" class="btn btn-primary btn-xs edit-bl edit" data-toggle="modal" data-target="#bl">编辑</button>
+                      <button type="button" class="btn btn-warning btn-xs edit-bl copy" data-toggle="modal" data-target="#bl">复制</button>
+                      <button type="button" class="btn btn-danger btn-xs remove-bl">删除</button>
+                  </div>
+              </h3>
+          </div>
+          <div class="panel-body">
+              <span></span>
+          </div>
+      </div>
 
 <script>
     <!--监听新增和编辑环境按钮点击事件-->
     $(function () {
         $(".edit-image").on("click", function () {
-            var colId =  $(this).closest(".col-md-4").attr("id");
-            if(colId != null){
-                var colIdI = colId.split("-")[1];
+            if($(this).hasClass("edit")){
+                var colIdI = $(this).closest(".col-md-4").attr("id").split("-")[1];
             }else {
                 var colIdI = -1;
             }
+
             $("#imageid").attr("number", colIdI);
             $("#imageName").val($(this).parent("p").siblings(".imageName").text());
             $("#check-branch").val($(this).parent("p").siblings(".image-branch").text())
@@ -168,7 +187,19 @@
     <!--监听新增、修改环境保存按钮点击事件-->
     $(function () {
         $("#saveImage").on("click", function () {
-            var image = $("#image-" + $("#imageid").attr("number"));
+            var imageId = $("#imageid").attr("number");
+            if(imageId == -1){
+                var imageId = 4
+                var image = $("#imageTem").clone(true)
+                image.attr("id", "image-" + imageId)//id从接口中返回
+                image.attr("class", "col-sm-6 col-md-4")
+                image.find("#blList-new").attr("id", "blList-" + imageId)
+                $("#imageList").append(image)
+                $("#check-image").append('<option id="check-image-'+imageId +'" >'+$("#imageName").val()+'</option>')
+            }else {
+                var image = $("#image-" + $("#imageid").attr("number"));
+                $("#check-image-" + imageId).html($("#imageName").val())
+            }
             image.find(".image-branch").html($("#check-branch").val());
             image.find(".imageName").html($("#imageName").val());
             image.find(".imageDiscrip").html($("#imageDiscrip").val());
@@ -176,33 +207,67 @@
             toastr.success("保存成功");
         })
     })
-
-
-    <!--监听新增和编辑环境按钮点击事件-->
+    <!--监听删除环境按钮点击事件-->
     $(function () {
-        $(".edit-bl").on("click", function () {
-//            var titles = $("#bl-title").children()
-            $("#title-bl-name").html($("#bl-title-name").text());
-            $("#title-image-1").html($("#bl-title-1").text());
-            $("#title-image-2").html($("#bl-title-2").text());
-            $("#title-image-3").html($("#bl-title-3").text());
-            
-            var bls = $(this).parent().parent().children();
-            $("#value-image-name").val(bls[0].val())
-            $("#value-image-1").val(bls[1].val())
-            $("#value-image-2").val(bls[2].val())
-            $("#value-image-3").val(bls[3].val())
-            
+        $(".remove-image").on("click", function () {
+            $(this).closest(".col-md-4").remove()
         })
     })
-    <!--监听新增、修改环境保存按钮点击事件-->
+    <!--监听显示变量按钮点击事件-->
     $(function () {
-        $("#saveImageaa").on("click", function () {
-            var image = $("#image-" + $("#imageid").attr("number"));
-            image.find(".imageName").html($("#imageName").val());
-            image.find(".imageDiscrip").html($("#imageDiscrip").val());
-            $("#image").modal('hide');
+        $(".show-bl").on("click", function () {
+            var bls = $(this).next()
+            if(bls.hasClass("hide")){
+                bls.removeClass("hide")
+            }else{
+                bls.addClass("hide")
+            }
+        })
+
+    })
+    <!--监听删除变量按钮点击事件-->
+    $(function () {
+        $(".remove-bl").on("click", function () {
+            $(this).closest(".bls").remove()
+        })
+    })
+    <!--监听新增和编辑变量按钮点击事件-->
+    $(function () {
+        $(".edit-bl").on("click", function () {
+//            $("#image-id").attr("number", $(this).closest(".col-md-4").attr("id").split("-")[1]);
+            if($(this).hasClass("edit")){
+                var blId = $(this).closest(".bls").attr("id").split("-")[1];
+            }else {
+                var blId = -1;
+            }
+
+            $("#blid").attr("number", blId);
+            $("#bl-key").val($(this).closest(".bls").find(".panel-title > span").text());
+            $("#bl-value").val($(this).closest(".bls").find(".panel-body > span").text());
+            $("#check-image").val($(this).closest(".col-md-4").find(".imageName").text())
+        })
+    })
+    <!--监听新增、修改变量保存按钮点击事件-->
+    $(function () {
+        $("#saveBl").on("click", function () {
+            var imageId =  $("#check-image").find("option:selected").attr("id").split("-")[2];
+            var blId =  $("#blid").attr("number");
+            if(blId == -1){
+                var bl = $("#blTem").clone(true);
+                bl.attr("id", "bl-7");//id从接口中返回
+                bl.removeClass("hide");
+                $("#blList-" + imageId).append(bl);
+            }else {
+                var bl = $("#bl-" + blId);
+            }
+
+            bl.find(".panel-title > span").text($("#bl-key").val())
+            bl.find(".panel-body > span").text($("#bl-value").val());
+            bl.find(".image-branch").html($("#check-image").val());
+
+            $("#bl").modal('hide');
             toastr.success("保存成功");
+
         })
     })
 
@@ -250,36 +315,39 @@
 
       <!-- Modal -->
       <div class="modal fade" id="bl" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+          <span class="hide" id="blid" number="-1"></span>
+          <span class="hide" id="image-id" number="-1"></span>
+
           <div class="modal-dialog" role="document">
               <div class="modal-content">
                   <div class="modal-header">
                       <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                      <h4 class="modal-title" id="myblLabel">环境</h4>
+                      <h4 class="modal-title" id="myblLabel">变量</h4>
                   </div>
                   <div class="modal-body">
                       <div class="input-group input-group-lg">
-                          <span id="title-bl-name" class="input-group-addon">变量名称</span>
-                          <input type="text" id="value-image-name" class="form-control" placeholder="变量名称" aria-describedby="sizing-addon1">
+                          <span class="input-group-addon">环境</span>
+                          <select class="form-control" id="check-image">
+                              <option>请选择环境</option>
+                              {{range .images}}
+                              <option id="check-image-{{.Id}}">{{.Name}}</option>
+                              {{end}}
+                          </select>
                       </div>
                       <br>
                       <div class="input-group input-group-lg">
-                          <span class="input-group-addon" id="title-image-1">开发环境</span>
-                          <input id="value-image-1" type="text" class="form-control" placeholder="开发环境" aria-describedby="sizing-addon1">
+                          <span id="title-bl-name" class="input-group-addon">变量名</span>
+                          <input type="text" id="bl-key" class="form-control" placeholder="Key" aria-describedby="sizing-addon1">
                       </div>
                       <br>
                       <div class="input-group input-group-lg">
-                          <span class="input-group-addon" id="title-image-2">测试环境</span>
-                          <input id="value-image-2" type="text" class="form-control" placeholder="测试环境" aria-describedby="sizing-addon1">
-                      </div>
-                      <br>
-                      <div class="input-group input-group-lg">
-                          <span class="input-group-addon" id="title-image-3">生产环境</span>
-                          <input id="value-image-3" type="text" class="form-control" placeholder="生产环境" aria-describedby="sizing-addon1">
+                          <span class="input-group-addon" id="title-image-1">变量值</span>
+                          <input id="bl-value" type="text" class="form-control" placeholder="Value" aria-describedby="sizing-addon1">
                       </div>
                   </div>
                   <div class="modal-footer">
                       <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
-                      <button type="button" class="btn btn-primary">保存</button>
+                      <button type="button" class="btn btn-primary" id="saveBl">保存</button>
                   </div>
               </div>
           </div>
