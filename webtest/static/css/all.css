@@ -8,3 +8,20 @@
     float: right;
 }
 
+.left3{
+    width: 23%;
+    height: 100%;
+    float: left;
+    border-right:2px solid #eee;
+    /*display:inline*/
+}
+.right7{
+    width: 75%;
+    height: 100%;
+    float: right;
+    /*display:inline*/
+}
+.left99{
+    width: 99%;
+    height: 100%;
+}

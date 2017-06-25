@@ -117,6 +117,20 @@
 
           <div class="content hide" id="content-yl">
 
+              <div class="left3">
+                  <div class="left99">
+                      <ul class="list-group">
+                          <li class="list-group-item">
+                              <span class="badge">14</span>
+                              Cras justo odio
+                          </li>
+                      </ul>
+                  </div>
+
+              </div>
+              <div class="right7">
+bbb
+              </div>
               <button onclick="toastr.success('注册成功!');">success</button>
               <button onclick="toastr.error('报错了');">error</button>
               <button onclick="toastr.info('一般信息');">info</button>
