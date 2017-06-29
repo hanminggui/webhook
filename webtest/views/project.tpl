@@ -119,16 +119,35 @@
 
               <div class="left3">
                   <div class="left99">
+
                       <ul class="list-group">
-                          <li class="list-group-item">
+                          <li class="list-group-item list-group-item-info version">
                               <span class="badge">14</span>
-                              Cras justo odio
+                              <span>Cras justo odio</span>
+
+                              <div class="cases hide">
+                                  <br>
+                                  <ul class="list-group">
+                                      <li class="list-group-item list-group-item-success cases">
+                                          <span class="badge">14</span>
+                                          <span>Cras justo odio</span>
+                                      </li>
+                                      <li class="list-group-item list-group-item-success cases">
+                                          <span class="badge">14</span>
+                                          <span>Cras justo odio</span>
+                                      </li>
+                                  </ul>
+                              </div>
                           </li>
                       </ul>
-                  </div>
 
+                  </div>
               </div>
+
               <div class="right7">
+                  <div class="hide ccc">
+                      ccc
+                  </div>
 bbb
               </div>
               <button onclick="toastr.success('注册成功!');">success</button>
@@ -183,6 +202,30 @@ bbb
       </div>
 
 <script>
+
+    <!--展开/收起版本用例列表-->
+    $(function () {
+        $(".version").on("click", function () {
+            var version = $(this).find(".cases");
+            if(version.hasClass("hide")){
+                version.removeClass("hide");
+            }else {
+                version.addClass("hide");
+            }
+        })
+    });
+
+    $(function () {
+        $(".version").on("click", function () {
+            var cases = $(this).find(".cases");
+            if(cases.hasClass("hide")){
+                cases.removeClass("hide");
+            }else {
+                cases.addClass("hide");
+            }
+        })
+    });
+
     <!--监听新增和编辑环境按钮点击事件-->
     $(function () {
         $(".edit-image").on("click", function () {
@@ -194,25 +237,25 @@ bbb
 
             $("#imageid").attr("number", colIdI);
             $("#imageName").val($(this).parent("p").siblings(".imageName").text());
-            $("#check-branch").val($(this).parent("p").siblings(".image-branch").text())
+            $("#check-branch").val($(this).parent("p").siblings(".image-branch").text());
             $("#imageDiscrip").val($(this).parent("p").siblings(".imageDiscrip").text());
         })
-    })
+    });
     <!--监听新增、修改环境保存按钮点击事件-->
     $(function () {
         $("#saveImage").on("click", function () {
             var imageId = $("#imageid").attr("number");
             if(imageId == -1){
-                var imageId = 4
-                var image = $("#imageTem").clone(true)
-                image.attr("id", "image-" + imageId)//id从接口中返回
-                image.attr("class", "col-sm-6 col-md-4")
-                image.find("#blList-new").attr("id", "blList-" + imageId)
-                $("#imageList").append(image)
-                $("#check-image").append('<option id="check-image-'+imageId +'" >'+$("#imageName").val()+'</option>')
+                var imageId = 4;
+                var image = $("#imageTem").clone(true);
+                image.attr("id", "image-" + imageId);//id从接口中返回
+                image.attr("class", "col-sm-6 col-md-4");
+                image.find("#blList-new").attr("id", "blList-" + imageId);
+                $("#imageList").append(image);
+                $("#check-image").append('<option id="check-image-'+imageId +'" >'+$("#imageName").val()+'</option>');
             }else {
                 var image = $("#image-" + $("#imageid").attr("number"));
-                $("#check-image-" + imageId).html($("#imageName").val())
+                $("#check-image-" + imageId).html($("#imageName").val());
             }
             image.find(".image-branch").html($("#check-branch").val());
             image.find(".imageName").html($("#imageName").val());
@@ -220,31 +263,31 @@ bbb
             $("#image").modal('hide');
             toastr.success("保存成功");
         })
-    })
+    });
     <!--监听删除环境按钮点击事件-->
     $(function () {
         $(".remove-image").on("click", function () {
-            $(this).closest(".col-md-4").remove()
+            $(this).closest(".col-md-4").remove();
         })
-    })
+    });
     <!--监听显示变量按钮点击事件-->
     $(function () {
         $(".show-bl").on("click", function () {
-            var bls = $(this).next()
+            var bls = $(this).next();
             if(bls.hasClass("hide")){
-                bls.removeClass("hide")
+                bls.removeClass("hide");
             }else{
-                bls.addClass("hide")
+                bls.addClass("hide");
             }
         })
 
-    })
+    });
     <!--监听删除变量按钮点击事件-->
     $(function () {
         $(".remove-bl").on("click", function () {
-            $(this).closest(".bls").remove()
+            $(this).closest(".bls").remove();
         })
-    })
+    });
     <!--监听新增和编辑变量按钮点击事件-->
     $(function () {
         $(".edit-bl").on("click", function () {
@@ -258,9 +301,9 @@ bbb
             $("#blid").attr("number", blId);
             $("#bl-key").val($(this).closest(".bls").find(".panel-title > span").text());
             $("#bl-value").val($(this).closest(".bls").find(".panel-body > span").text());
-            $("#check-image").val($(this).closest(".col-md-4").find(".imageName").text())
+            $("#check-image").val($(this).closest(".col-md-4").find(".imageName").text());
         })
-    })
+    });
     <!--监听新增、修改变量保存按钮点击事件-->
     $(function () {
         $("#saveBl").on("click", function () {
@@ -275,7 +318,7 @@ bbb
                 var bl = $("#bl-" + blId);
             }
 
-            bl.find(".panel-title > span").text($("#bl-key").val())
+            bl.find(".panel-title > span").text($("#bl-key").val());
             bl.find(".panel-body > span").text($("#bl-value").val());
             bl.find(".image-branch").html($("#check-image").val());
 
@@ -283,7 +326,7 @@ bbb
             toastr.success("保存成功");
 
         })
-    })
+    });
 
 </script>
 
