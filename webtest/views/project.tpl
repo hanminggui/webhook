@@ -121,20 +121,27 @@
                   <div class="left99">
 
                       <ul class="list-group">
-                          <li class="list-group-item list-group-item-info version">
-                              <span class="badge">14</span>
-                              <span>Cras justo odio</span>
+                          <li class="list-group-item list-group-item-info">
 
-                              <div class="cases hide">
+                              <div class="title cases">
+                                  <span>1.1</span>
+                                  <span class="badge">3</span>
+                              </div>
+
+                              <div class="content hide">
                                   <br>
                                   <ul class="list-group">
                                       <li class="list-group-item list-group-item-success cases">
-                                          <span class="badge">14</span>
-                                          <span>Cras justo odio</span>
+                                          <span class="badge">3</span>
+                                          <span>监控注册登录流程</span>
                                       </li>
                                       <li class="list-group-item list-group-item-success cases">
-                                          <span class="badge">14</span>
-                                          <span>Cras justo odio</span>
+                                          <span class="badge">2</span>
+                                          <span>监控商城</span>
+                                      </li>
+                                      <li class="list-group-item list-group-item-success cases">
+                                          <span class="badge">68</span>
+                                          <span>监控社区</span>
                                       </li>
                                   </ul>
                               </div>
@@ -145,10 +152,9 @@
               </div>
 
               <div class="right7">
-                  <div class="hide ccc">
-                      ccc
+                  <div class="step">
+
                   </div>
-bbb
               </div>
               <button onclick="toastr.success('注册成功!');">success</button>
               <button onclick="toastr.error('报错了');">error</button>
@@ -205,12 +211,12 @@ bbb
 
     <!--展开/收起版本用例列表-->
     $(function () {
-        $(".version").on("click", function () {
-            var version = $(this).find(".cases");
-            if(version.hasClass("hide")){
-                version.removeClass("hide");
+        $(".cases").on("click", function () {
+            var cases = $(this).siblings(".content");
+            if(cases.hasClass("hide")){
+                cases.removeClass("hide");
             }else {
-                version.addClass("hide");
+                cases.addClass("hide");
             }
         })
     });
