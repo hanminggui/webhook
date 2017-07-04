@@ -10,16 +10,16 @@
 
 .left3{
     width: 23%;
-    height: 100%;
+    height: 86%;
     float: left;
     border-right:2px solid #eee;
-    /*display:inline*/
+    overflow-y:auto;
 }
 .right7{
     width: 75%;
-    height: 100%;
+    height: 86%;
     float: right;
-    /*display:inline*/
+    overflow-y:auto;
 }
 .left99{
     width: 99%;

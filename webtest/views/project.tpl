@@ -119,7 +119,8 @@
 
               <div class="left3">
                   <div class="left99">
-
+                      <button type="button" class="btn btn-primary">新增版本</button>
+                      <button type="button" class="btn btn-info">管理</button>
                       <ul class="list-group">
                           <li class="list-group-item list-group-item-info">
 
@@ -146,21 +147,237 @@
                                   </ul>
                               </div>
                           </li>
+    
+                          <li class="list-group-item list-group-item-info">
+        
+                              <div class="title cases">
+                                  <span>1.1</span>
+                                  <span class="badge">3</span>
+                              </div>
+        
+                              <div class="content hide">
+                                  <br>
+                                  <ul class="list-group">
+                                      <li class="list-group-item list-group-item-success cases">
+                                          <span class="badge">3</span>
+                                          <span>监控注册登录流程</span>
+                                      </li>
+                                      <li class="list-group-item list-group-item-success cases">
+                                          <span class="badge">2</span>
+                                          <span>监控商城</span>
+                                      </li>
+                                      <li class="list-group-item list-group-item-success cases">
+                                          <span class="badge">68</span>
+                                          <span>监控社区</span>
+                                      </li>
+                                  </ul>
+                              </div>
+                          </li>
+    
+                          <li class="list-group-item list-group-item-info">
+        
+                              <div class="title cases">
+                                  <span>1.1</span>
+                                  <span class="badge">3</span>
+                              </div>
+        
+                              <div class="content hide">
+                                  <br>
+                                  <ul class="list-group">
+                                      <li class="list-group-item list-group-item-success cases">
+                                          <span class="badge">3</span>
+                                          <span>监控注册登录流程</span>
+                                      </li>
+                                      <li class="list-group-item list-group-item-success cases">
+                                          <span class="badge">2</span>
+                                          <span>监控商城</span>
+                                      </li>
+                                      <li class="list-group-item list-group-item-success cases">
+                                          <span class="badge">68</span>
+                                          <span>监控社区</span>
+                                      </li>
+                                  </ul>
+                              </div>
+                          </li>
+    
+                          <li class="list-group-item list-group-item-info">
+        
+                              <div class="title cases">
+                                  <span>1.1</span>
+                                  <span class="badge">3</span>
+                              </div>
+        
+                              <div class="content hide">
+                                  <br>
+                                  <ul class="list-group">
+                                      <li class="list-group-item list-group-item-success cases">
+                                          <span class="badge">3</span>
+                                          <span>监控注册登录流程</span>
+                                      </li>
+                                      <li class="list-group-item list-group-item-success cases">
+                                          <span class="badge">2</span>
+                                          <span>监控商城</span>
+                                      </li>
+                                      <li class="list-group-item list-group-item-success cases">
+                                          <span class="badge">68</span>
+                                          <span>监控社区</span>
+                                      </li>
+                                  </ul>
+                              </div>
+                          </li>
+    
+                          <li class="list-group-item list-group-item-info">
+        
+                              <div class="title cases">
+                                  <span>1.1</span>
+                                  <span class="badge">3</span>
+                              </div>
+        
+                              <div class="content hide">
+                                  <br>
+                                  <ul class="list-group">
+                                      <li class="list-group-item list-group-item-success cases">
+                                          <span class="badge">3</span>
+                                          <span>监控注册登录流程</span>
+                                      </li>
+                                      <li class="list-group-item list-group-item-success cases">
+                                          <span class="badge">2</span>
+                                          <span>监控商城</span>
+                                      </li>
+                                      <li class="list-group-item list-group-item-success cases">
+                                          <span class="badge">68</span>
+                                          <span>监控社区</span>
+                                      </li>
+                                  </ul>
+                              </div>
+                          </li>
                       </ul>
 
                   </div>
               </div>
 
               <div class="right7">
-                  <div class="step">
-
-                  </div>
+    
+                  <ul class="list-group">
+                      <li class="list-group-item well step">
+                          <span>发送</span>
+                          <select class="request-type">
+                              <option value="GET">GET</option>
+                              <option value="POST">POST</option>
+                          </select>
+                          <span>请求;url:</span>
+                          <input value="">
+                          <span>请求数据类型</span>
+                          <select class="date-type">
+                              <option value="X-WWW-FORM-URLENCODED">X-WWW-FORM-URLENCODED</option>
+                              <option value="JSON">JSON</option>
+                          </select>
+                          <br><br>
+                          <textarea class="form-control" placeholder="参数" rows="2"></textarea>
+                      </li>
+                      <li class="list-group-item well step">
+                          <span>发送</span>
+                          <select class="request-type">
+                              <option value="GET">GET</option>
+                              <option value="POST">POST</option>
+                          </select>
+                          <span>请求;url:</span>
+                          <input value="">
+                          <span>请求数据类型</span>
+                          <select class="date-type">
+                              <option value="X-WWW-FORM-URLENCODED">X-WWW-FORM-URLENCODED</option>
+                              <option value="JSON">JSON</option>
+                          </select>
+                          <br><br>
+                          <textarea class="form-control" placeholder="参数" rows="2"></textarea>
+                      </li>
+                      <li class="list-group-item well step">
+                          <span>发送</span>
+                          <select class="request-type">
+                              <option value="GET">GET</option>
+                              <option value="POST">POST</option>
+                          </select>
+                          <span>请求;url:</span>
+                          <input value="">
+                          <span>请求数据类型</span>
+                          <select class="date-type">
+                              <option value="X-WWW-FORM-URLENCODED">X-WWW-FORM-URLENCODED</option>
+                              <option value="JSON">JSON</option>
+                          </select>
+                          <br><br>
+                          <textarea class="form-control" placeholder="参数" rows="2"></textarea>
+                      </li>
+                      <li class="list-group-item well step">
+                          <span>发送</span>
+                          <select class="request-type">
+                              <option value="GET">GET</option>
+                              <option value="POST">POST</option>
+                          </select>
+                          <span>请求;url:</span>
+                          <input value="">
+                          <span>请求数据类型</span>
+                          <select class="date-type">
+                              <option value="X-WWW-FORM-URLENCODED">X-WWW-FORM-URLENCODED</option>
+                              <option value="JSON">JSON</option>
+                          </select>
+                          <br><br>
+                          <textarea class="form-control" placeholder="参数" rows="2"></textarea>
+                      </li>
+                      <li class="list-group-item well step">
+                          <span>发送</span>
+                          <select class="request-type">
+                              <option value="GET">GET</option>
+                              <option value="POST">POST</option>
+                          </select>
+                          <span>请求;url:</span>
+                          <input value="">
+                          <span>请求数据类型</span>
+                          <select class="date-type">
+                              <option value="X-WWW-FORM-URLENCODED">X-WWW-FORM-URLENCODED</option>
+                              <option value="JSON">JSON</option>
+                          </select>
+                          <br><br>
+                          <textarea class="form-control" placeholder="参数" rows="2"></textarea>
+                      </li>
+                      <!--<li class="list-group-item well step">-->
+                          <!--<span>发送</span>-->
+                          <!--<select class="request-type">-->
+                              <!--<option value="GET">GET</option>-->
+                              <!--<option value="POST">POST</option>-->
+                          <!--</select>-->
+                          <!--<span>请求;url:</span>-->
+                          <!--<input value="">-->
+                          <!--<span>请求数据类型</span>-->
+                          <!--<select class="date-type">-->
+                              <!--<option value="X-WWW-FORM-URLENCODED">X-WWW-FORM-URLENCODED</option>-->
+                              <!--<option value="JSON">JSON</option>-->
+                          <!--</select>-->
+                          <!--<br><br>-->
+                          <!--<textarea class="form-control" placeholder="参数" rows="2"></textarea>-->
+                      <!--</li>-->
+                      <!--<li class="list-group-item well step">-->
+                          <!--<span>发送</span>-->
+                          <!--<select class="request-type">-->
+                              <!--<option value="GET">GET</option>-->
+                              <!--<option value="POST">POST</option>-->
+                          <!--</select>-->
+                          <!--<span>请求;url:</span>-->
+                          <!--<input value="">-->
+                          <!--<span>请求数据类型</span>-->
+                          <!--<select class="date-type">-->
+                              <!--<option value="X-WWW-FORM-URLENCODED">X-WWW-FORM-URLENCODED</option>-->
+                              <!--<option value="JSON">JSON</option>-->
+                          <!--</select>-->
+                          <!--<br><br>-->
+                          <!--<textarea class="form-control" placeholder="参数" rows="2"></textarea>-->
+                      <!--</li>-->
+                  </ul>
+                  
               </div>
-              <button onclick="toastr.success('注册成功!');">success</button>
-              <button onclick="toastr.error('报错了');">error</button>
-              <button onclick="toastr.info('一般信息');">info</button>
-              <button onclick="toastr.warning('警告');">warning</button>
-              用例
+              <!--<button onclick="toastr.success('注册成功!');">success</button>-->
+              <!--<button onclick="toastr.error('报错了');">error</button>-->
+              <!--<button onclick="toastr.info('一般信息');">info</button>-->
+              <!--<button onclick="toastr.warning('警告');">warning</button>-->
           </div>
 
       </div>
