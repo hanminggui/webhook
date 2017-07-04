@@ -266,7 +266,7 @@
                               <option value="POST">POST</option>
                           </select>
                           <span>请求;url:</span>
-                          <input value="">
+                          <input value="" placeholder="URL" class="url-innput">
                           <span>请求数据类型</span>
                           <select class="date-type">
                               <option value="X-WWW-FORM-URLENCODED">X-WWW-FORM-URLENCODED</option>
@@ -282,7 +282,7 @@
                               <option value="POST">POST</option>
                           </select>
                           <span>请求;url:</span>
-                          <input value="">
+                          <input value="" placeholder="URL" class="url-innput">
                           <span>请求数据类型</span>
                           <select class="date-type">
                               <option value="X-WWW-FORM-URLENCODED">X-WWW-FORM-URLENCODED</option>
@@ -298,7 +298,7 @@
                               <option value="POST">POST</option>
                           </select>
                           <span>请求;url:</span>
-                          <input value="">
+                          <input value="" placeholder="URL" class="url-innput">
                           <span>请求数据类型</span>
                           <select class="date-type">
                               <option value="X-WWW-FORM-URLENCODED">X-WWW-FORM-URLENCODED</option>
@@ -314,7 +314,7 @@
                               <option value="POST">POST</option>
                           </select>
                           <span>请求;url:</span>
-                          <input value="">
+                          <input value="" placeholder="URL" class="url-innput">
                           <span>请求数据类型</span>
                           <select class="date-type">
                               <option value="X-WWW-FORM-URLENCODED">X-WWW-FORM-URLENCODED</option>
@@ -330,7 +330,7 @@
                               <option value="POST">POST</option>
                           </select>
                           <span>请求;url:</span>
-                          <input value="">
+                          <input value="" placeholder="URL" class="url-innput">
                           <span>请求数据类型</span>
                           <select class="date-type">
                               <option value="X-WWW-FORM-URLENCODED">X-WWW-FORM-URLENCODED</option>
