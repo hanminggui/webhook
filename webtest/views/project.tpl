@@ -152,12 +152,12 @@
               <div class="right7">
                   <div>
                       <label>切换风格：</label>
-                      <button type="button" class="switch-style btn btn-default">灰白色</button>
-                      <button type="button" class="switch-style btn btn-primary">深蓝色</button>
-                      <button type="button" class="switch-style btn btn-success">浅绿色</button>
-                      <button type="button" class="switch-style btn btn-info">浅蓝色</button>
-                      <button type="button" class="switch-style btn btn-warning">橙黄色</button>
-                      <button type="button" class="switch-style btn btn-danger">血红色</button>
+                      <button type="button" class="switch-style btn btn-default" tcalss="panel panel-default step-title">灰白色</button>
+                      <button type="button" class="switch-style btn btn-primary" tcalss="panel panel-primary step-title">深蓝色</button>
+                      <button type="button" class="switch-style btn btn-success" tcalss="panel panel-success step-title">浅绿色</button>
+                      <button type="button" class="switch-style btn btn-info" tcalss="panel panel-info step-title">浅蓝色</button>
+                      <button type="button" class="switch-style btn btn-warning" tcalss="panel panel-warning step-title">橙黄色</button>
+                      <button type="button" class="switch-style btn btn-danger" tcalss="panel panel-danger step-title">血红色</button>
                   </div>
                   <br>
                   <div class="panel panel-danger step-title">
@@ -166,82 +166,82 @@
                       </div>
                       <div class="panel-body">
                           <!--<span class="label label-default">Default</span>-->
-                          <span class="label label-primary">调用登录接口</span>
-                          <span class="label label-success">验证登录接口返回结果</span>
-                          <span class="label label-info">保存一个变量</span>
-                          <span class="label label-warning">运行代码块</span>
+                          <span class="label label-primary action">调用登录接口</span>
+                          <span class="label label-success action">验证登录接口返回结果</span>
+                          <span class="label label-info action">保存一个变量</span>
+                          <span class="label label-warning action">运行代码块</span>
                           <!--<span class="label label-danger">Danger</span>-->
                       </div>
                   </div>
     
-                  <div class="panel panel-warning">
+                  <div class="panel panel-warning step-title">
                       <div class="panel-heading">
                           <h3 class="panel-title">step 2</h3>
                       </div>
                       <div class="panel-body">
-                          <span class="label label-default">Default</span>
-                          <span class="label label-primary">Primary</span>
-                          <span class="label label-success">Success</span>
-                          <span class="label label-info">Info</span>
-                          <span class="label label-warning">Warning</span>
-                          <span class="label label-danger">Danger</span>
+                          <span class="label label-default action">Default</span>
+                          <span class="label label-primary action">Primary</span>
+                          <span class="label label-success action">Success</span>
+                          <span class="label label-info action">Info</span>
+                          <span class="label label-warning action">Warning</span>
+                          <span class="label label-danger action">Danger</span>
                       </div>
                   </div>
     
-                  <div class="panel panel-info">
+                  <div class="panel panel-info step-title">
                       <div class="panel-heading">
                           <h3 class="panel-title">step 3</h3>
                       </div>
                       <div class="panel-body">
-                          <span class="label label-default">Default</span>
-                          <span class="label label-primary">Primary</span>
-                          <span class="label label-success">Success</span>
-                          <span class="label label-info">Info</span>
-                          <span class="label label-warning">Warning</span>
-                          <span class="label label-danger">Danger</span>
+                          <span class="label label-default action">Default</span>
+                          <span class="label label-primary action">Primary</span>
+                          <span class="label label-success action">Success</span>
+                          <span class="label label-info action">Info</span>
+                          <span class="label label-warning action">Warning</span>
+                          <span class="label label-danger action">Danger</span>
                       </div>
                   </div>
     
-                  <div class="panel panel-success">
+                  <div class="panel panel-success step-title">
                       <div class="panel-heading">
                           <h3 class="panel-title">step 4</h3>
                       </div>
                       <div class="panel-body">
-                          <span class="label label-default">Default</span>
-                          <span class="label label-primary">Primary</span>
-                          <span class="label label-success">Success</span>
-                          <span class="label label-info">Info</span>
-                          <span class="label label-warning">Warning</span>
-                          <span class="label label-danger">Danger</span>
+                          <span class="label label-default action">Default</span>
+                          <span class="label label-primary action">Primary</span>
+                          <span class="label label-success action">Success</span>
+                          <span class="label label-info action">Info</span>
+                          <span class="label label-warning action">Warning</span>
+                          <span class="label label-danger action">Danger</span>
                       </div>
                   </div>
     
     
-                  <div class="panel panel-primary">
+                  <div class="panel panel-primary step-title">
                       <div class="panel-heading">
                           <h3 class="panel-title">step 5</h3>
                       </div>
                       <div class="panel-body">
-                          <span class="label label-default">Default</span>
-                          <span class="label label-primary">Primary</span>
-                          <span class="label label-success">Success</span>
-                          <span class="label label-info">Info</span>
-                          <span class="label label-warning">Warning</span>
-                          <span class="label label-danger">Danger</span>
+                          <span class="label label-default action">Default</span>
+                          <span class="label label-primary action">Primary</span>
+                          <span class="label label-success action">Success</span>
+                          <span class="label label-info action">Info</span>
+                          <span class="label label-warning action">Warning</span>
+                          <span class="label label-danger action">Danger</span>
                       </div>
                   </div>
     
-                  <div class="panel panel-default">
+                  <div class="panel panel-default step-title">
                       <div class="panel-heading">
                           <h3 class="panel-title">step 5</h3>
                       </div>
                       <div class="panel-body">
-                          <span class="label label-default">Default</span>
-                          <span class="label label-primary">Primary</span>
-                          <span class="label label-success">Success</span>
-                          <span class="label label-info">Info</span>
-                          <span class="label label-warning">Warning</span>
-                          <span class="label label-danger">Danger</span>
+                          <span class="label label-default action">Default</span>
+                          <span class="label label-primary action">Primary</span>
+                          <span class="label label-success action">Success</span>
+                          <span class="label label-info action">Info</span>
+                          <span class="label label-warning action">Warning</span>
+                          <span class="label label-danger action" draggable="true">Danger</span>
                       </div>
                   </div>
                   
@@ -347,14 +347,23 @@
           </div>
       </div>
 
+      <div id="mark-info" class="hide">
+          aaaaaaa
+      </div>
+
 <script>
-    
+
+    $(".action").hover(function(){
+        var tip = $("#mark-info");
+        $("#mark-info").removeClass("hide")
+    },function(){
+        $("#mark-info").addClass("hide")
+    })
+
+    <!--切换风格-->
     $(function () {
         $(".switch-style").on("click", function () {
-            var steps = $(".step-title");
-            for(var i=0; i<steps.length; i++){
-                steps[i].cla
-            }
+            $(".step-title").attr("class", $(this).attr("tcalss"));
         })
     })
 
@@ -363,10 +372,10 @@
         $(".cases").on("click", function () {
             var cases = $(this).next(".content");
             if(cases.hasClass("hide")){
-                $(this).addClass("active")
+                $(this).addClass("active");
                 cases.removeClass("hide");
             }else {
-                $(this).removeClass("active")
+                $(this).removeClass("active");
                 cases.addClass("hide");
             }
         })
