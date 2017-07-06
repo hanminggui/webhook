@@ -26,5 +26,11 @@
     height: 100%;
 }
 .url-innput{
-    width: 42%;
+    width: 40%;
+}
+.key-innput{
+    width: 20%;
+}
+.value-innput{
+    width: 40%;
 }
