@@ -347,8 +347,42 @@
           </div>
       </div>
 
-      <div id="mark-info" class="hide">
-          aaaaaaa
+      <!--<div id="mark-info" class="hide">-->
+          <!--aaaaaaa-->
+      <!--</div>-->
+      
+      <div class="container" id="mark-info">
+          <h1>Guided tour tooltip</h1>
+          <span class="close"></span>
+          <div class="slider-container">
+              <div class="slider-turn">
+                  <p>Guided tour tooltip inspired by Jonathan Moreira</p>
+                  <p>
+                      Dribbble shot visible at
+                      <a href="#" target="_blank" title="Dribbble shot">this link</a>
+                  </p>
+                  <p>Codepen by Yoann Helin</p>
+                  <p>
+                      <a href="#" target="_blank" title="Twitter">Twitter : @YoannHELIN</a>
+                      <br>
+                      <a href="#" target="_blank" title="Book">Book : Yoannhelin.fr</a>
+                  </p>
+                  <p>Thank you !</p>
+              </div>
+          </div>
+          <div class="bottom">
+              <div class="step">
+                  <span>Step 1</span>
+                  <ul>
+                      <li data-num="1" class="active"></li>
+                      <li data-num="2"></li>
+                      <li data-num="3"></li>
+                      <li data-num="4"></li>
+                      <li data-num="5"></li>
+                  </ul>
+              </div>
+              <button class="btn">Next</button>
+          </div>
       </div>
 
 <script>
