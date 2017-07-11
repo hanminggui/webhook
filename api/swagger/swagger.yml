@@ -1,0 +1,1460 @@
+swagger: "2.0"
+info:
+  title: beego Test API
+  description: beego has a very cool tools to autogenerate documents for your API
+  version: 1.0.0
+  termsOfService: http://beego.me/
+  contact:
+    email: astaxie@gmail.com
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+basePath: /v1
+paths:
+  /blog/:
+    get:
+      tags:
+      - blog
+      description: get Blog
+      operationId: BlogController.Get All
+      parameters:
+      - in: query
+        name: query
+        description: Filter. e.g. col1:v1,col2:v2 ...
+        type: string
+      - in: query
+        name: fields
+        description: Fields returned. e.g. col1,col2 ...
+        type: string
+      - in: query
+        name: sortby
+        description: Sorted-by fields. e.g. col1,col2 ...
+        type: string
+      - in: query
+        name: order
+        description: Order corresponding to each sortby field, if single value, apply
+          to all sortby fields. e.g. desc,asc ...
+        type: string
+      - in: query
+        name: limit
+        description: Limit the size of result set. Must be an integer
+        type: string
+      - in: query
+        name: offset
+        description: Start position of result set. Must be an integer
+        type: string
+      responses:
+        "200":
+          schema:
+            $ref: '#/definitions/models.Blog'
+        "403": {}
+    post:
+      tags:
+      - blog
+      description: create Blog
+      operationId: BlogController.Post
+      parameters:
+      - in: body
+        name: body
+        description: body for Blog content
+        required: true
+        schema:
+          $ref: '#/definitions/models.Blog'
+      responses:
+        "201":
+          description: '{int} models.Blog'
+        "403":
+          description: body is empty
+  /blog/{id}:
+    get:
+      tags:
+      - blog
+      description: get Blog by id
+      operationId: BlogController.Get One
+      parameters:
+      - in: path
+        name: id
+        description: The key for staticblock
+        required: true
+        type: string
+      responses:
+        "200":
+          schema:
+            $ref: '#/definitions/models.Blog'
+        "403":
+          description: :id is empty
+    put:
+      tags:
+      - blog
+      description: update the Blog
+      operationId: BlogController.Put
+      parameters:
+      - in: path
+        name: id
+        description: The id you want to update
+        required: true
+        type: string
+      - in: body
+        name: body
+        description: body for Blog content
+        required: true
+        schema:
+          $ref: '#/definitions/models.Blog'
+      responses:
+        "200":
+          schema:
+            $ref: '#/definitions/models.Blog'
+        "403":
+          description: :id is not int
+    delete:
+      tags:
+      - blog
+      description: delete the Blog
+      operationId: BlogController.Delete
+      parameters:
+      - in: path
+        name: id
+        description: The id you want to delete
+        required: true
+        type: string
+      responses:
+        "200":
+          description: '{string} delete success!'
+        "403":
+          description: id is empty
+  /case/:
+    get:
+      tags:
+      - case
+      description: get Case
+      operationId: CaseController.Get All
+      parameters:
+      - in: query
+        name: query
+        description: Filter. e.g. col1:v1,col2:v2 ...
+        type: string
+      - in: query
+        name: fields
+        description: Fields returned. e.g. col1,col2 ...
+        type: string
+      - in: query
+        name: sortby
+        description: Sorted-by fields. e.g. col1,col2 ...
+        type: string
+      - in: query
+        name: order
+        description: Order corresponding to each sortby field, if single value, apply
+          to all sortby fields. e.g. desc,asc ...
+        type: string
+      - in: query
+        name: limit
+        description: Limit the size of result set. Must be an integer
+        type: string
+      - in: query
+        name: offset
+        description: Start position of result set. Must be an integer
+        type: string
+      responses:
+        "200":
+          schema:
+            $ref: '#/definitions/models.Case'
+        "403": {}
+    post:
+      tags:
+      - case
+      description: create Case
+      operationId: CaseController.Post
+      parameters:
+      - in: body
+        name: body
+        description: body for Case content
+        required: true
+        schema:
+          $ref: '#/definitions/models.Case'
+      responses:
+        "201":
+          description: '{int} models.Case'
+        "403":
+          description: body is empty
+  /case/{id}:
+    get:
+      tags:
+      - case
+      description: get Case by id
+      operationId: CaseController.Get One
+      parameters:
+      - in: path
+        name: id
+        description: The key for staticblock
+        required: true
+        type: string
+      responses:
+        "200":
+          schema:
+            $ref: '#/definitions/models.Case'
+        "403":
+          description: :id is empty
+    put:
+      tags:
+      - case
+      description: update the Case
+      operationId: CaseController.Put
+      parameters:
+      - in: path
+        name: id
+        description: The id you want to update
+        required: true
+        type: string
+      - in: body
+        name: body
+        description: body for Case content
+        required: true
+        schema:
+          $ref: '#/definitions/models.Case'
+      responses:
+        "200":
+          schema:
+            $ref: '#/definitions/models.Case'
+        "403":
+          description: :id is not int
+    delete:
+      tags:
+      - case
+      description: delete the Case
+      operationId: CaseController.Delete
+      parameters:
+      - in: path
+        name: id
+        description: The id you want to delete
+        required: true
+        type: string
+      responses:
+        "200":
+          description: '{string} delete success!'
+        "403":
+          description: id is empty
+  /folder/:
+    get:
+      tags:
+      - folder
+      description: get Folder
+      operationId: FolderController.Get All
+      parameters:
+      - in: query
+        name: query
+        description: Filter. e.g. col1:v1,col2:v2 ...
+        type: string
+      - in: query
+        name: fields
+        description: Fields returned. e.g. col1,col2 ...
+        type: string
+      - in: query
+        name: sortby
+        description: Sorted-by fields. e.g. col1,col2 ...
+        type: string
+      - in: query
+        name: order
+        description: Order corresponding to each sortby field, if single value, apply
+          to all sortby fields. e.g. desc,asc ...
+        type: string
+      - in: query
+        name: limit
+        description: Limit the size of result set. Must be an integer
+        type: string
+      - in: query
+        name: offset
+        description: Start position of result set. Must be an integer
+        type: string
+      responses:
+        "200":
+          schema:
+            $ref: '#/definitions/models.Folder'
+        "403": {}
+    post:
+      tags:
+      - folder
+      description: create Folder
+      operationId: FolderController.Post
+      parameters:
+      - in: body
+        name: body
+        description: body for Folder content
+        required: true
+        schema:
+          $ref: '#/definitions/models.Folder'
+      responses:
+        "201":
+          description: '{int} models.Folder'
+        "403":
+          description: body is empty
+  /folder/{id}:
+    get:
+      tags:
+      - folder
+      description: get Folder by id
+      operationId: FolderController.Get One
+      parameters:
+      - in: path
+        name: id
+        description: The key for staticblock
+        required: true
+        type: string
+      responses:
+        "200":
+          schema:
+            $ref: '#/definitions/models.Folder'
+        "403":
+          description: :id is empty
+    put:
+      tags:
+      - folder
+      description: update the Folder
+      operationId: FolderController.Put
+      parameters:
+      - in: path
+        name: id
+        description: The id you want to update
+        required: true
+        type: string
+      - in: body
+        name: body
+        description: body for Folder content
+        required: true
+        schema:
+          $ref: '#/definitions/models.Folder'
+      responses:
+        "200":
+          schema:
+            $ref: '#/definitions/models.Folder'
+        "403":
+          description: :id is not int
+    delete:
+      tags:
+      - folder
+      description: delete the Folder
+      operationId: FolderController.Delete
+      parameters:
+      - in: path
+        name: id
+        description: The id you want to delete
+        required: true
+        type: string
+      responses:
+        "200":
+          description: '{string} delete success!'
+        "403":
+          description: id is empty
+  /image/:
+    get:
+      tags:
+      - image
+      description: get Image
+      operationId: ImageController.Get All
+      parameters:
+      - in: query
+        name: query
+        description: Filter. e.g. col1:v1,col2:v2 ...
+        type: string
+      - in: query
+        name: fields
+        description: Fields returned. e.g. col1,col2 ...
+        type: string
+      - in: query
+        name: sortby
+        description: Sorted-by fields. e.g. col1,col2 ...
+        type: string
+      - in: query
+        name: order
+        description: Order corresponding to each sortby field, if single value, apply
+          to all sortby fields. e.g. desc,asc ...
+        type: string
+      - in: query
+        name: limit
+        description: Limit the size of result set. Must be an integer
+        type: string
+      - in: query
+        name: offset
+        description: Start position of result set. Must be an integer
+        type: string
+      responses:
+        "200":
+          schema:
+            $ref: '#/definitions/models.Image'
+        "403": {}
+    post:
+      tags:
+      - image
+      description: create Image
+      operationId: ImageController.Post
+      parameters:
+      - in: body
+        name: body
+        description: body for Image content
+        required: true
+        schema:
+          $ref: '#/definitions/models.Image'
+      responses:
+        "201":
+          description: '{int} models.Image'
+        "403":
+          description: body is empty
+  /image/{id}:
+    get:
+      tags:
+      - image
+      description: get Image by id
+      operationId: ImageController.Get One
+      parameters:
+      - in: path
+        name: id
+        description: The key for staticblock
+        required: true
+        type: string
+      responses:
+        "200":
+          schema:
+            $ref: '#/definitions/models.Image'
+        "403":
+          description: :id is empty
+    put:
+      tags:
+      - image
+      description: update the Image
+      operationId: ImageController.Put
+      parameters:
+      - in: path
+        name: id
+        description: The id you want to update
+        required: true
+        type: string
+      - in: body
+        name: body
+        description: body for Image content
+        required: true
+        schema:
+          $ref: '#/definitions/models.Image'
+      responses:
+        "200":
+          schema:
+            $ref: '#/definitions/models.Image'
+        "403":
+          description: :id is not int
+    delete:
+      tags:
+      - image
+      description: delete the Image
+      operationId: ImageController.Delete
+      parameters:
+      - in: path
+        name: id
+        description: The id you want to delete
+        required: true
+        type: string
+      responses:
+        "200":
+          description: '{string} delete success!'
+        "403":
+          description: id is empty
+  /interface/:
+    get:
+      tags:
+      - interface
+      description: get Interface
+      operationId: InterfaceController.Get All
+      parameters:
+      - in: query
+        name: query
+        description: Filter. e.g. col1:v1,col2:v2 ...
+        type: string
+      - in: query
+        name: fields
+        description: Fields returned. e.g. col1,col2 ...
+        type: string
+      - in: query
+        name: sortby
+        description: Sorted-by fields. e.g. col1,col2 ...
+        type: string
+      - in: query
+        name: order
+        description: Order corresponding to each sortby field, if single value, apply
+          to all sortby fields. e.g. desc,asc ...
+        type: string
+      - in: query
+        name: limit
+        description: Limit the size of result set. Must be an integer
+        type: string
+      - in: query
+        name: offset
+        description: Start position of result set. Must be an integer
+        type: string
+      responses:
+        "200":
+          schema:
+            $ref: '#/definitions/models.Interface'
+        "403": {}
+    post:
+      tags:
+      - interface
+      description: create Interface
+      operationId: InterfaceController.Post
+      parameters:
+      - in: body
+        name: body
+        description: body for Interface content
+        required: true
+        schema:
+          $ref: '#/definitions/models.Interface'
+      responses:
+        "201":
+          description: '{int} models.Interface'
+        "403":
+          description: body is empty
+  /interface/{id}:
+    get:
+      tags:
+      - interface
+      description: get Interface by id
+      operationId: InterfaceController.Get One
+      parameters:
+      - in: path
+        name: id
+        description: The key for staticblock
+        required: true
+        type: string
+      responses:
+        "200":
+          schema:
+            $ref: '#/definitions/models.Interface'
+        "403":
+          description: :id is empty
+    put:
+      tags:
+      - interface
+      description: update the Interface
+      operationId: InterfaceController.Put
+      parameters:
+      - in: path
+        name: id
+        description: The id you want to update
+        required: true
+        type: string
+      - in: body
+        name: body
+        description: body for Interface content
+        required: true
+        schema:
+          $ref: '#/definitions/models.Interface'
+      responses:
+        "200":
+          schema:
+            $ref: '#/definitions/models.Interface'
+        "403":
+          description: :id is not int
+    delete:
+      tags:
+      - interface
+      description: delete the Interface
+      operationId: InterfaceController.Delete
+      parameters:
+      - in: path
+        name: id
+        description: The id you want to delete
+        required: true
+        type: string
+      responses:
+        "200":
+          description: '{string} delete success!'
+        "403":
+          description: id is empty
+  /module/:
+    get:
+      tags:
+      - module
+      description: get Module
+      operationId: ModuleController.Get All
+      parameters:
+      - in: query
+        name: query
+        description: Filter. e.g. col1:v1,col2:v2 ...
+        type: string
+      - in: query
+        name: fields
+        description: Fields returned. e.g. col1,col2 ...
+        type: string
+      - in: query
+        name: sortby
+        description: Sorted-by fields. e.g. col1,col2 ...
+        type: string
+      - in: query
+        name: order
+        description: Order corresponding to each sortby field, if single value, apply
+          to all sortby fields. e.g. desc,asc ...
+        type: string
+      - in: query
+        name: limit
+        description: Limit the size of result set. Must be an integer
+        type: string
+      - in: query
+        name: offset
+        description: Start position of result set. Must be an integer
+        type: string
+      responses:
+        "200":
+          schema:
+            $ref: '#/definitions/models.Module'
+        "403": {}
+    post:
+      tags:
+      - module
+      description: create Module
+      operationId: ModuleController.Post
+      parameters:
+      - in: body
+        name: body
+        description: body for Module content
+        required: true
+        schema:
+          $ref: '#/definitions/models.Module'
+      responses:
+        "201":
+          description: '{int} models.Module'
+        "403":
+          description: body is empty
+  /module/{id}:
+    get:
+      tags:
+      - module
+      description: get Module by id
+      operationId: ModuleController.Get One
+      parameters:
+      - in: path
+        name: id
+        description: The key for staticblock
+        required: true
+        type: string
+      responses:
+        "200":
+          schema:
+            $ref: '#/definitions/models.Module'
+        "403":
+          description: :id is empty
+    put:
+      tags:
+      - module
+      description: update the Module
+      operationId: ModuleController.Put
+      parameters:
+      - in: path
+        name: id
+        description: The id you want to update
+        required: true
+        type: string
+      - in: body
+        name: body
+        description: body for Module content
+        required: true
+        schema:
+          $ref: '#/definitions/models.Module'
+      responses:
+        "200":
+          schema:
+            $ref: '#/definitions/models.Module'
+        "403":
+          description: :id is not int
+    delete:
+      tags:
+      - module
+      description: delete the Module
+      operationId: ModuleController.Delete
+      parameters:
+      - in: path
+        name: id
+        description: The id you want to delete
+        required: true
+        type: string
+      responses:
+        "200":
+          description: '{string} delete success!'
+        "403":
+          description: id is empty
+  /parameter/:
+    get:
+      tags:
+      - parameter
+      description: get Parameter
+      operationId: ParameterController.Get All
+      parameters:
+      - in: query
+        name: query
+        description: Filter. e.g. col1:v1,col2:v2 ...
+        type: string
+      - in: query
+        name: fields
+        description: Fields returned. e.g. col1,col2 ...
+        type: string
+      - in: query
+        name: sortby
+        description: Sorted-by fields. e.g. col1,col2 ...
+        type: string
+      - in: query
+        name: order
+        description: Order corresponding to each sortby field, if single value, apply
+          to all sortby fields. e.g. desc,asc ...
+        type: string
+      - in: query
+        name: limit
+        description: Limit the size of result set. Must be an integer
+        type: string
+      - in: query
+        name: offset
+        description: Start position of result set. Must be an integer
+        type: string
+      responses:
+        "200":
+          schema:
+            $ref: '#/definitions/models.Parameter'
+        "403": {}
+    post:
+      tags:
+      - parameter
+      description: create Parameter
+      operationId: ParameterController.Post
+      parameters:
+      - in: body
+        name: body
+        description: body for Parameter content
+        required: true
+        schema:
+          $ref: '#/definitions/models.Parameter'
+      responses:
+        "201":
+          description: '{int} models.Parameter'
+        "403":
+          description: body is empty
+  /parameter/{id}:
+    get:
+      tags:
+      - parameter
+      description: get Parameter by id
+      operationId: ParameterController.Get One
+      parameters:
+      - in: path
+        name: id
+        description: The key for staticblock
+        required: true
+        type: string
+      responses:
+        "200":
+          schema:
+            $ref: '#/definitions/models.Parameter'
+        "403":
+          description: :id is empty
+    put:
+      tags:
+      - parameter
+      description: update the Parameter
+      operationId: ParameterController.Put
+      parameters:
+      - in: path
+        name: id
+        description: The id you want to update
+        required: true
+        type: string
+      - in: body
+        name: body
+        description: body for Parameter content
+        required: true
+        schema:
+          $ref: '#/definitions/models.Parameter'
+      responses:
+        "200":
+          schema:
+            $ref: '#/definitions/models.Parameter'
+        "403":
+          description: :id is not int
+    delete:
+      tags:
+      - parameter
+      description: delete the Parameter
+      operationId: ParameterController.Delete
+      parameters:
+      - in: path
+        name: id
+        description: The id you want to delete
+        required: true
+        type: string
+      responses:
+        "200":
+          description: '{string} delete success!'
+        "403":
+          description: id is empty
+  /project/:
+    get:
+      tags:
+      - project
+      description: get Project
+      operationId: ProjectController.Get All
+      parameters:
+      - in: query
+        name: query
+        description: Filter. e.g. col1:v1,col2:v2 ...
+        type: string
+      - in: query
+        name: fields
+        description: Fields returned. e.g. col1,col2 ...
+        type: string
+      - in: query
+        name: sortby
+        description: Sorted-by fields. e.g. col1,col2 ...
+        type: string
+      - in: query
+        name: order
+        description: Order corresponding to each sortby field, if single value, apply
+          to all sortby fields. e.g. desc,asc ...
+        type: string
+      - in: query
+        name: limit
+        description: Limit the size of result set. Must be an integer
+        type: string
+      - in: query
+        name: offset
+        description: Start position of result set. Must be an integer
+        type: string
+      responses:
+        "200":
+          schema:
+            $ref: '#/definitions/models.Project'
+        "403": {}
+    post:
+      tags:
+      - project
+      description: create Project
+      operationId: ProjectController.Post
+      parameters:
+      - in: body
+        name: body
+        description: body for Project content
+        required: true
+        schema:
+          $ref: '#/definitions/models.Project'
+      responses:
+        "201":
+          description: '{int} models.Project'
+        "403":
+          description: body is empty
+  /project/{id}:
+    get:
+      tags:
+      - project
+      description: get Project by id
+      operationId: ProjectController.Get One
+      parameters:
+      - in: path
+        name: id
+        description: The key for staticblock
+        required: true
+        type: string
+      responses:
+        "200":
+          schema:
+            $ref: '#/definitions/models.Project'
+        "403":
+          description: :id is empty
+    put:
+      tags:
+      - project
+      description: update the Project
+      operationId: ProjectController.Put
+      parameters:
+      - in: path
+        name: id
+        description: The id you want to update
+        required: true
+        type: string
+      - in: body
+        name: body
+        description: body for Project content
+        required: true
+        schema:
+          $ref: '#/definitions/models.Project'
+      responses:
+        "200":
+          schema:
+            $ref: '#/definitions/models.Project'
+        "403":
+          description: :id is not int
+    delete:
+      tags:
+      - project
+      description: delete the Project
+      operationId: ProjectController.Delete
+      parameters:
+      - in: path
+        name: id
+        description: The id you want to delete
+        required: true
+        type: string
+      responses:
+        "200":
+          description: '{string} delete success!'
+        "403":
+          description: id is empty
+  /step/:
+    get:
+      tags:
+      - step
+      description: get Step
+      operationId: StepController.Get All
+      parameters:
+      - in: query
+        name: query
+        description: Filter. e.g. col1:v1,col2:v2 ...
+        type: string
+      - in: query
+        name: fields
+        description: Fields returned. e.g. col1,col2 ...
+        type: string
+      - in: query
+        name: sortby
+        description: Sorted-by fields. e.g. col1,col2 ...
+        type: string
+      - in: query
+        name: order
+        description: Order corresponding to each sortby field, if single value, apply
+          to all sortby fields. e.g. desc,asc ...
+        type: string
+      - in: query
+        name: limit
+        description: Limit the size of result set. Must be an integer
+        type: string
+      - in: query
+        name: offset
+        description: Start position of result set. Must be an integer
+        type: string
+      responses:
+        "200":
+          schema:
+            $ref: '#/definitions/models.Step'
+        "403": {}
+    post:
+      tags:
+      - step
+      description: create Step
+      operationId: StepController.Post
+      parameters:
+      - in: body
+        name: body
+        description: body for Step content
+        required: true
+        schema:
+          $ref: '#/definitions/models.Step'
+      responses:
+        "201":
+          description: '{int} models.Step'
+        "403":
+          description: body is empty
+  /step/{id}:
+    get:
+      tags:
+      - step
+      description: get Step by id
+      operationId: StepController.Get One
+      parameters:
+      - in: path
+        name: id
+        description: The key for staticblock
+        required: true
+        type: string
+      responses:
+        "200":
+          schema:
+            $ref: '#/definitions/models.Step'
+        "403":
+          description: :id is empty
+    put:
+      tags:
+      - step
+      description: update the Step
+      operationId: StepController.Put
+      parameters:
+      - in: path
+        name: id
+        description: The id you want to update
+        required: true
+        type: string
+      - in: body
+        name: body
+        description: body for Step content
+        required: true
+        schema:
+          $ref: '#/definitions/models.Step'
+      responses:
+        "200":
+          schema:
+            $ref: '#/definitions/models.Step'
+        "403":
+          description: :id is not int
+    delete:
+      tags:
+      - step
+      description: delete the Step
+      operationId: StepController.Delete
+      parameters:
+      - in: path
+        name: id
+        description: The id you want to delete
+        required: true
+        type: string
+      responses:
+        "200":
+          description: '{string} delete success!'
+        "403":
+          description: id is empty
+  /user/:
+    get:
+      tags:
+      - user
+      description: get User
+      operationId: UserController.Get All
+      parameters:
+      - in: query
+        name: query
+        description: Filter. e.g. col1:v1,col2:v2 ...
+        type: string
+      - in: query
+        name: fields
+        description: Fields returned. e.g. col1,col2 ...
+        type: string
+      - in: query
+        name: sortby
+        description: Sorted-by fields. e.g. col1,col2 ...
+        type: string
+      - in: query
+        name: order
+        description: Order corresponding to each sortby field, if single value, apply
+          to all sortby fields. e.g. desc,asc ...
+        type: string
+      - in: query
+        name: limit
+        description: Limit the size of result set. Must be an integer
+        type: string
+      - in: query
+        name: offset
+        description: Start position of result set. Must be an integer
+        type: string
+      responses:
+        "200":
+          schema:
+            $ref: '#/definitions/models.User'
+        "403": {}
+    post:
+      tags:
+      - user
+      description: create User
+      operationId: UserController.Post
+      parameters:
+      - in: body
+        name: body
+        description: body for User content
+        required: true
+        schema:
+          $ref: '#/definitions/models.User'
+      responses:
+        "201":
+          description: '{int} models.User'
+        "403":
+          description: body is empty
+  /user/{id}:
+    get:
+      tags:
+      - user
+      description: get User by id
+      operationId: UserController.Get One
+      parameters:
+      - in: path
+        name: id
+        description: The key for staticblock
+        required: true
+        type: string
+      responses:
+        "200":
+          schema:
+            $ref: '#/definitions/models.User'
+        "403":
+          description: :id is empty
+    put:
+      tags:
+      - user
+      description: update the User
+      operationId: UserController.Put
+      parameters:
+      - in: path
+        name: id
+        description: The id you want to update
+        required: true
+        type: string
+      - in: body
+        name: body
+        description: body for User content
+        required: true
+        schema:
+          $ref: '#/definitions/models.User'
+      responses:
+        "200":
+          schema:
+            $ref: '#/definitions/models.User'
+        "403":
+          description: :id is not int
+    delete:
+      tags:
+      - user
+      description: delete the User
+      operationId: UserController.Delete
+      parameters:
+      - in: path
+        name: id
+        description: The id you want to delete
+        required: true
+        type: string
+      responses:
+        "200":
+          description: '{string} delete success!'
+        "403":
+          description: id is empty
+  /variable/:
+    get:
+      tags:
+      - variable
+      description: get Variable
+      operationId: VariableController.Get All
+      parameters:
+      - in: query
+        name: query
+        description: Filter. e.g. col1:v1,col2:v2 ...
+        type: string
+      - in: query
+        name: fields
+        description: Fields returned. e.g. col1,col2 ...
+        type: string
+      - in: query
+        name: sortby
+        description: Sorted-by fields. e.g. col1,col2 ...
+        type: string
+      - in: query
+        name: order
+        description: Order corresponding to each sortby field, if single value, apply
+          to all sortby fields. e.g. desc,asc ...
+        type: string
+      - in: query
+        name: limit
+        description: Limit the size of result set. Must be an integer
+        type: string
+      - in: query
+        name: offset
+        description: Start position of result set. Must be an integer
+        type: string
+      responses:
+        "200":
+          schema:
+            $ref: '#/definitions/models.Variable'
+        "403": {}
+    post:
+      tags:
+      - variable
+      description: create Variable
+      operationId: VariableController.Post
+      parameters:
+      - in: body
+        name: body
+        description: body for Variable content
+        required: true
+        schema:
+          $ref: '#/definitions/models.Variable'
+      responses:
+        "201":
+          description: '{int} models.Variable'
+        "403":
+          description: body is empty
+  /variable/{id}:
+    get:
+      tags:
+      - variable
+      description: get Variable by id
+      operationId: VariableController.Get One
+      parameters:
+      - in: path
+        name: id
+        description: The key for staticblock
+        required: true
+        type: string
+      responses:
+        "200":
+          schema:
+            $ref: '#/definitions/models.Variable'
+        "403":
+          description: :id is empty
+    put:
+      tags:
+      - variable
+      description: update the Variable
+      operationId: VariableController.Put
+      parameters:
+      - in: path
+        name: id
+        description: The id you want to update
+        required: true
+        type: string
+      - in: body
+        name: body
+        description: body for Variable content
+        required: true
+        schema:
+          $ref: '#/definitions/models.Variable'
+      responses:
+        "200":
+          schema:
+            $ref: '#/definitions/models.Variable'
+        "403":
+          description: :id is not int
+    delete:
+      tags:
+      - variable
+      description: delete the Variable
+      operationId: VariableController.Delete
+      parameters:
+      - in: path
+        name: id
+        description: The id you want to delete
+        required: true
+        type: string
+      responses:
+        "200":
+          description: '{string} delete success!'
+        "403":
+          description: id is empty
+definitions:
+  models.Blog:
+    title: Blog
+    type: object
+    properties:
+      Content:
+        type: string
+      Id:
+        type: integer
+        format: int64
+      PubDate:
+        type: string
+        format: string
+      Title:
+        type: string
+      UserId:
+        $ref: '#/definitions/models.User'
+  models.Case:
+    title: Case
+    type: object
+    properties:
+      Createdate:
+        type: string
+        format: string
+      Descrip:
+        type: string
+      FolderId:
+        $ref: '#/definitions/models.Folder'
+      Id:
+        type: integer
+        format: int64
+      InterfaceId:
+        $ref: '#/definitions/models.Interface'
+      Name:
+        type: string
+      Status:
+        type: integer
+        format: int64
+  models.Folder:
+    title: Folder
+    type: object
+    properties:
+      Id:
+        type: integer
+        format: int64
+      ModuleId:
+        $ref: '#/definitions/models.Module'
+      Name:
+        type: string
+      Status:
+        type: integer
+        format: int64
+  models.Image:
+    title: Image
+    type: object
+    properties:
+      Id:
+        type: integer
+        format: int64
+      ProkectId:
+        $ref: '#/definitions/models.Project'
+  models.Interface:
+    title: Interface
+    type: object
+    properties:
+      Createdate:
+        type: string
+        format: string
+      Describe:
+        type: string
+      Id:
+        type: integer
+        format: int64
+      Name:
+        type: string
+      ProjectId:
+        $ref: '#/definitions/models.Project'
+      Protocol:
+        type: string
+      RequestType:
+        type: string
+      ResponseType:
+        type: string
+      Status:
+        type: integer
+        format: int64
+      Updatedate:
+        type: string
+        format: string
+      Url:
+        type: string
+  models.Module:
+    title: Module
+    type: object
+    properties:
+      Id:
+        type: integer
+        format: int64
+      Name:
+        type: string
+      ProjectId:
+        type: integer
+        format: int64
+      Status:
+        type: integer
+        format: int64
+  models.Parameter:
+    title: Parameter
+    type: object
+    properties:
+      Descrip:
+        type: string
+      Id:
+        type: integer
+        format: int64
+      InterfaceId:
+        $ref: '#/definitions/models.Interface'
+      Must:
+        type: integer
+        format: int64
+      Name:
+        type: string
+      Type:
+        type: integer
+        format: int64
+  models.Project:
+    title: Project
+    type: object
+    properties:
+      Createdate:
+        type: string
+        format: string
+      Describe:
+        type: string
+      Id:
+        type: integer
+        format: int64
+      Modifydate:
+        type: string
+        format: string
+      Name:
+        type: string
+      Statu:
+        type: integer
+        format: int64
+  models.Step:
+    title: Step
+    type: object
+    properties:
+      CaseId:
+        $ref: '#/definitions/models.Case'
+      Id:
+        type: integer
+        format: int64
+      Status:
+        type: integer
+        format: int64
+      Type:
+        type: integer
+        format: int64
+      Value:
+        type: string
+  models.User:
+    title: User
+    type: object
+    properties:
+      FirstName:
+        type: string
+      Id:
+        type: integer
+        format: int64
+      LastName:
+        type: string
+      Nickname:
+        type: string
+      Password:
+        type: string
+  models.Variable:
+    title: Variable
+    type: object
+    properties:
+      Descrip:
+        type: string
+      Id:
+        type: integer
+        format: int64
+      ImageId:
+        $ref: '#/definitions/models.Image'
+      Key:
+        type: string
+      Value:
+        type: string
+tags:
+- name: blog
+  description: |
+    BlogController operations for Blog
+- name: case
+  description: |
+    CaseController operations for Case
+- name: folder
+  description: |
+    FolderController operations for Folder
+- name: image
+  description: |
+    ImageController operations for Image
+- name: interface
+  description: |
+    InterfaceController operations for Interface
+- name: module
+  description: |
+    ModuleController operations for Module
+- name: parameter
+  description: |
+    ParameterController operations for Parameter
+- name: project
+  description: |
+    ProjectController operations for Project
+- name: step
+  description: |
+    StepController operations for Step
+- name: user
+  description: |
+    UserController operations for User
+- name: variable
+  description: |
+    VariableController operations for Variable
